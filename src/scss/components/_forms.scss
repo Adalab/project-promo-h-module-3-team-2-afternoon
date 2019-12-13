@@ -1,0 +1,248 @@
+.forms{
+
+    @include media($tablet){
+        grid-area: forms;
+    }
+    
+    .section-wrapper{
+        padding: 10px 20px;
+
+        .form-top{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            cursor: pointer;
+
+            &:hover  > .form-arrow{
+                color: $color-main;
+            }
+            
+            h2{
+                font-size: rem(18);  
+                text-transform: uppercase;
+                margin: 0;
+
+                i{
+                    color:$color-main;
+                }
+            }
+
+            .form-arrow{
+                width: 18px;
+                text-align: right;
+                font-size: rem(18);
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), color 0.5s ease;
+            }
+
+            .form-arrow-collapse{
+                transform: rotate(180deg);
+            }
+        }
+
+        .forms__section{
+            border-bottom: 1px solid $color-white-2;
+            margin-bottom: 20px;
+        }
+
+        .form-bottom{
+            max-height: 0px;
+            transition:max-height 0.5s; 
+            overflow:hidden;
+
+            label span{
+                color: $color-main;
+            }
+        
+        }
+        .form-bottom-collapse{
+            max-height: 700px;
+        }
+
+        .design{
+
+            @include media($tablet){
+                margin-top: 0px;
+            }
+
+            .form-bottom{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+
+                p{
+                    font-size: rem(14);
+                    text-transform: uppercase;
+                    margin: 0px;
+                }
+
+                .select-palette{
+                    display: flex;
+                    align-items: center;
+                    margin: 20px auto;
+
+
+                    .palette{    
+                        width: 90px;
+                        height: 25px;
+                        display: flex;
+                        margin-left: 10px;
+
+                        .palette__color{
+                            width: 30px;
+                            height: 25px;
+                        }
+                    }    
+                }
+
+                .palette-1{
+                    
+                    .color-1{
+                        background-color: $color-palette1c1;
+                    }
+
+                    .color-2{
+                        background-color: $color-palette1c2;
+                    }
+
+                    .color-3{
+                        background-color: $color-palette1c3;
+                    }
+                }
+
+                .palette-2{
+                    
+                    .color-1{
+                        background-color: $color-palette2c1;
+                    }
+
+                    .color-2{
+                        background-color: $color-palette2c2;
+                    }
+
+                    .color-3{
+                        background-color: $color-palette2c3;
+                    }
+                }
+
+                .palette-3{
+                    
+                    .color-1{
+                        background-color: $color-palette3c1;
+                    }
+
+                    .color-2{
+                        background-color: $color-palette3c2;
+                    }
+
+                    .color-3{
+                        background-color: $color-palette3c3;
+                    }
+                }
+            }
+        }
+
+        .fill{
+            
+            .form-bottom{
+
+                label{
+                    color: $color-secondary-darker;
+                    font-size: rem(14);
+                }
+                
+                input{
+                    height: 30px;
+                    padding: 0 5px;
+                    display: block;
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    font-size: rem(14);
+                    border: solid 1px $color-secondary-lighter;
+
+                    &:focus{
+                        border: solid 2px $color-main;
+                        outline: none;
+                    }
+               }
+
+               .input-error{
+                border: solid 1px $color-error;
+
+               }
+
+               .text-error{
+                   color: $color-error;
+                   font-size: rem(11);
+                   margin-top: -12px;
+               }
+
+               ::placeholder{
+                   color: $color-white-2;
+               }
+               
+               .profile-picture{
+
+                    &__upload{
+                        display: flex;
+                        align-items: center; margin: 10px 0 20px 0;
+    
+                        .thumbnail{
+                            width: 30px;
+                            height: 30px;
+                            margin-left: 20px;
+                            border: solid 1px $color-secondary-lighter;
+                            // background-image: url('../images/profile-picture.gif');
+                            background-size: cover;
+                            background-position: center;
+                        }
+                    }
+
+                    .js__profile-upload-btn{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .share{
+            text-align: center;
+
+            .text-error{
+                color: $color-error;
+                font-size: rem(12);
+            }
+
+            .btn-create{
+                margin-top: 2px;
+                margin-bottom: 30px;
+            }
+
+            .card__share{
+                padding-top: 25px;
+                border-top: 1px solid $color-white-2;
+
+                p{
+                    font-size: rem(18);
+                    font-weight: 600;
+                    margin: 0px;
+                }
+
+                p.card__link{
+                    font-size: rem(12);
+                    color: $color-main;
+                    margin: 5px 0 10px 0;
+                }
+
+                .btn-twitter{
+                    margin: 20px auto;
+                    
+                }
+            }
+        }
+    }
+}
+
+
