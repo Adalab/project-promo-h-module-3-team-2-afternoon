@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
+import Landing from './components/Landing';
 import './scss/main.scss';
 
 class App extends Component {
   render() {
     return (
-      <p>Hola mundo</p>
+      <Landing />
+      //<p>Hola mundo</p>
 
     );
   }
