@@ -10,8 +10,8 @@ class Form extends React.Component {
                 <div className="section-wrapper">
                     <form action="" method="POST" id="card__form">
                         {/*<Design />*/}
-                        <Fill />
-                        {/*<Share />*/}
+                        <Fill/>
+                        <Share/>
                     </form>
                 </div>
             </section>
