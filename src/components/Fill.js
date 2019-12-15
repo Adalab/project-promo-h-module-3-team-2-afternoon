@@ -34,7 +34,7 @@ class Fill extends React.Component{
                             <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" required/>
                             <ErrorMessage id="error-email" errorText = 'Introduce un email válido.'/>
                         </li>
-                        <li className="telf">
+                        <li className="tel">
                             <label htmlFor="phone">Teléfono</label>
                             <input placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone" required/>
                             <ErrorMessage id="error-phone" errorText = 'Introduce un teléfono válido.'/>
