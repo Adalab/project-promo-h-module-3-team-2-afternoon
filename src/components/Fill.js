@@ -1,4 +1,5 @@
 import React from 'react';
+import ErrorMessage from './Error-message';
 
 class Fill extends React.Component{
     render(){
@@ -26,27 +27,27 @@ class Fill extends React.Component{
                                 <button type="button" className="btn-upload js__profile-trigger">Añadir imagen</button>
                                 <div className="thumbnail js__profile-preview"></div>
                             </div>
-                            <p id="error-image" className="text-error hidden">Sube una imagen.</p>
+                            <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
                         </li>
                         <li className="email">
                             <label htmlFor="email">Email<span>*</span></label>
                             <input placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" required/>
-                            <p id="error-email" className="text-error hidden">Introduce un email válido.</p>
+                            <ErrorMessage id="error-email" errorText = 'Introduce un email válido.'/>
                         </li>
                         <li className="telf">
                             <label htmlFor="phone">Teléfono</label>
                             <input placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone" required/>
-                            <p id="error-phone" className="text-error hidden">Introduce un teléfono válido.</p>
+                            <ErrorMessage id="error-phone" errorText = 'Introduce un teléfono válido.'/>
                         </li>
                         <li className="linkedin">
                             <label htmlFor="linkedin">Linkedin<span>*</span></label>
                             <input placeholder="sally-hill" id="linkedin" type="text" name="linkedin" required/>
-                            <p id="error-linkedin" className="text-error hidden">Introduce tu nombre de usuario de Linkedin sin @.</p>
+                            <ErrorMessage id="error-linkedin" errorText = 'Introduce tu nombre de usuario de Linkedin sin @.'/>
                         </li>
                         <li className="github">
                             <label htmlFor="github">Github<span>*</span></label>
                             <input placeholder="sally-hill" id="github" type="text" name="github" required/>
-                            <p id="error-github" className="text-error hidden">Introduce tu nombre de usuario de Github sin @.</p>
+                            <ErrorMessage id="error-github" errorText = 'Introduce tu nombre de usuario de Github sin @.'/>
                         </li>
                     </ul>
                 </div>
