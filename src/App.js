@@ -1,14 +1,17 @@
 import React from 'react';
-import { Component } from 'react';
-//import Landing from './components/Landing';
 import './scss/main.scss';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Form from './components/Form'
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      //<Landing />
-      <p>Hola mundo</p>
-
+      <div>
+        <Header />
+        <Form />
+        <Footer />
+      </div>
     );
   }
 }
