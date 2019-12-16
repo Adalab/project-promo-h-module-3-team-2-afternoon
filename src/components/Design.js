@@ -13,7 +13,7 @@ class Design extends React.Component{
                     <ul>
                         <li className="select-palette  palette-1">
                             <input id="palette1" type="radio" name="palettes" value="1" checked/>
-                            <label class="palette" htmlFor="palette1">
+                            <label className="palette" htmlFor="palette1">
                                 <div className="palette__color color-1"></div>
                                 <div className="palette__color color-2"></div>
                                 <div className="palette__color color-3"></div>
