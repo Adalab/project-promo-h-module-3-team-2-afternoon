@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './Input';
 import ErrorMessage from './Error-message';
 
 class Fill extends React.Component{
@@ -12,8 +13,7 @@ class Fill extends React.Component{
                 <div className="form-bottom" id="form-bottom-fill">
                     <ul>
                         <li className="FullName">
-                            <label htmlFor="FullName">Nombre completo<span>*</span></label>
-                            <input placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
+                            <Input htmlFor="FullName" label = 'Nombre completo *' placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required = 'required'/>
                         </li>
                         <li className="job">
                             <label htmlFor="job">Puesto<span>*</span></label>

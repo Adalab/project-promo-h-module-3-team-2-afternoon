@@ -15,7 +15,7 @@ class Share extends React.Component{
                     <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
                     <button className="btn-create  btn-create-inactive" id="btn-create"><i className="far fa-address-card"></i>
                         Crear tarjeta</button>
-                    <div className="card__share hidden" id="card-share">
+                    <div className="card__share" id="card-share">
                         <p>La tarjeta ha sido creada:</p>
                         <p id="card-link" className="card__link">card link</p>
                         <a id="twitter-share" href="" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
