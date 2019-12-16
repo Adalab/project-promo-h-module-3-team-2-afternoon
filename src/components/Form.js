@@ -9,7 +9,7 @@ class Form extends React.Component {
             <section className="forms">
                 <div className="section-wrapper">
                     <form action="" method="POST" id="card__form">
-                        {/*<Design />*/}
+                        <Design />
                         <Fill/>
                         <Share/>
                     </form>
