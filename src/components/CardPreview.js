@@ -1,6 +1,6 @@
 import React from "react";
-import Icons from "Icons";
-import Buttons from "Buttons";
+//import Icons from "Icons";
+//import Buttons from "Buttons";
 import profilePic from "../images/--profile-picture.gif"
 
 class CardPreview extends React.Component {
