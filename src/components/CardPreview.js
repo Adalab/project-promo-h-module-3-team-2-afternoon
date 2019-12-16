@@ -19,10 +19,10 @@ class CardPreview extends React.Component {
                 </div>
                 <div className="card__contacts">
                     <ul>
-                        <a id = "linkPhone" href=""><li id="cardPhone" className="contact-icon contact-icon-palette1 hidden"><i class="fas fa-mobile-alt"></i></li></a>
-                        <a id = "linkEmail" href=""><li id="cardEmail" className="contact-icon contact-icon-palette1 hidden"><i class="far fa-envelope"></i></li></a>
-                        <a id = "linkLinkedin" href="" target="_blank"><li id="cardLinkedin" className="contact-icon contact-icon-palette1 hidden"><i class="fab fa-linkedin-in"></i></li></a>
-                        <a id = "linkGithub" href="" target="_blank"><li id="cardGithub" className="contact-icon contact-icon-palette1 hidden"><i class="fab fa-github-alt"></i></li></a>
+                        <a id = "linkPhone" href=""><li id="cardPhone" className="contact-icon contact-icon-palette1 hidden"><i className="fas fa-mobile-alt"></i></li></a>
+                        <a id = "linkEmail" href=""><li id="cardEmail" className="contact-icon contact-icon-palette1 hidden"><i className="far fa-envelope"></i></li></a>
+                        <a id = "linkLinkedin" href="" target="_blank"><li id="cardLinkedin" className="contact-icon contact-icon-palette1 hidden"><i className="fab fa-linkedin-in"></i></li></a>
+                        <a id = "linkGithub" href="" target="_blank"><li id="cardGithub" className="contact-icon contact-icon-palette1 hidden"><i className="fab fa-github-alt"></i></li></a>
                     </ul>
                 </div>
             </div>
