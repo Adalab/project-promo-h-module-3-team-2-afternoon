@@ -1,6 +1,7 @@
 import React from "react";
-import Icons from "Icons";
-import Buttons from "Buttons";
+//import Icons from "Icons";
+//import Buttons from "Buttons";
+import profilePic from "../images/--profile-picture.gif"
 
 class CardPreview extends React.Component {
     render() {
@@ -13,7 +14,9 @@ class CardPreview extends React.Component {
                     <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
                     <p id="cardJob" className="card__id--role">Front-end developer</p>
                 </div>
-                <div className="card__photo js__profile-image"></div>
+                <div className="card__photo js__profile-image">
+                    <img src={profilePic} alt="profileName" className="card__photo"/>
+                </div>
                 <div className="card__contacts">
                     <ul>
                         <a id = "linkPhone" href=""><li id="cardPhone" className="contact-icon contact-icon-palette1 hidden"><i class="fas fa-mobile-alt"></i></li></a>
