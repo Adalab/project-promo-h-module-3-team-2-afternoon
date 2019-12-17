@@ -12,8 +12,8 @@ class CardPreview extends React.Component {
             <button id="btn-reset" className="btn-reset"><i className="far fa-trash-alt"></i> reset</button>
             <div className="card select-palette1" id="cardId">
                 <div className="card__id">
-                    <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
-                    <p id="cardJob" className="card__id--role">Front-end developer</p>
+                    <h3 id="cardName" className="card__id--name">{this.props.cardPreviewName}</h3>
+                    <p id="cardJob" className="card__id--role">{this.props.cardPreviewJob}</p>
                 </div>
                 <div className="card__photo js__profile-image">
                     <img src={profilePic} alt="profileName" className="card__photo"/>
@@ -25,5 +25,8 @@ class CardPreview extends React.Component {
     )
     }
 }
-
+CardPreview.defaultProps = {
+    cardPreviewName: 'Nombre Apellido',
+    cardPreviewJob: 'Front-end developer'
+}
 export default CardPreview;
