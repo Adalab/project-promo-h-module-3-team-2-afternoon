@@ -1,4 +1,5 @@
 import React from 'react';
+import Collapsibles from "./Collapsibles";
 
 class Design extends React.Component{
     render(){
