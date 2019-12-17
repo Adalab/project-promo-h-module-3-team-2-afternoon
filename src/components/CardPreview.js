@@ -1,7 +1,7 @@
 import React from "react";
-//import Icons from "Icons";
 //import Buttons from "Buttons";
 import profilePic from "../images/--profile-picture.gif"
+import PreviewIcons from "./PreviewIcons";
 
 class CardPreview extends React.Component {
     render() {
@@ -17,14 +17,7 @@ class CardPreview extends React.Component {
                         <div className="card__photo js__profile-image">
                             <img src={profilePic} alt="profileName" className="card__photo" />
                         </div>
-                        <div className="card__contacts">
-                            <ul>
-                                <a id="linkPhone" href=""><li id="cardPhone" className="contact-icon contact-icon-palette1 hidden"><i className="fas fa-mobile-alt"></i></li></a>
-                                <a id="linkEmail" href=""><li id="cardEmail" className="contact-icon contact-icon-palette1 hidden"><i className="far fa-envelope"></i></li></a>
-                                <a id="linkLinkedin" href="" target="_blank"><li id="cardLinkedin" className="contact-icon contact-icon-palette1 hidden"><i className="fab fa-linkedin-in"></i></li></a>
-                                <a id="linkGithub" href="" target="_blank"><li id="cardGithub" className="contact-icon contact-icon-palette1 hidden"><i className="fab fa-github-alt"></i></li></a>
-                            </ul>
-                        </div>
+                        <PreviewIcons iconsList={this.props.iconsList} />
                     </div>
                 </div>
             </section>

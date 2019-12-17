@@ -10,8 +10,10 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <main className="main__card">
         <CardPreview />
         <Form />
+        </main>
         <Footer />
       </div>
       
