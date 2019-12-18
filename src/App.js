@@ -6,13 +6,16 @@ import Form from './components/Form'
 import CardPreview from './components/CardPreview';
 
 class App extends React.Component {
-  render() {
+  onChangeHandler(data){
+    console.log(data)
+  }
+  render(data) {
     return (
       <div>
         <Header />
         <main className="main__card">
-        <CardPreview />
-        <Form />
+        <CardPreview cardPreviewName={data}/>
+        <Form onChangeHandler={this.onChangeHandler}/>
         </main>
         <Footer />
       </div>

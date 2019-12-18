@@ -2,6 +2,13 @@ import React from 'react';
 import ErrorMessage from './Error-message';
 
 class Fill extends React.Component{
+    constructor(props){
+        super(props)
+        this.onChangeHandler = this.onChangeHandler.bind(this);
+    }
+    onChangeHandler = event =>{
+        this.props.onChangeHandler(event.target.value)
+    }
     render(){
         return (
             <section className="forms__section fill">
@@ -13,7 +20,7 @@ class Fill extends React.Component{
                     <ul>
                         <li className="FullName">
                             <label htmlFor="FullName">Nombre completo<span>*</span></label>
-                            <input placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
+                            <input onChange={this.onChangeHandler} placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
                         </li>
                         <li className="job">
                             <label htmlFor="job">Puesto<span>*</span></label>

@@ -3,7 +3,20 @@ import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
 
-class Form extends React.Component {
+const Form = props => {
+    return (
+        <section className="forms">
+            <div className="section-wrapper">
+                <form action="" method="POST" id="card__form">
+                    <Design />
+                    <Fill onChangeHandler = {props.onChangeHandler}/>
+                    <Share/>
+                </form>
+            </div>
+        </section>
+    )
+}
+/*class Form extends React.Component {
     render(){
         return (
             <section className="forms">
@@ -17,5 +30,5 @@ class Form extends React.Component {
             </section>
         )
     }
-}
+}*/
 export default Form;

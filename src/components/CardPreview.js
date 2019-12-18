@@ -5,6 +5,7 @@ import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
 
 class CardPreview extends React.Component {
+    
     render() {
         return (
     <section className="preview">
