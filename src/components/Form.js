@@ -6,6 +6,7 @@ import { Accordion, AccordionItem } from 'react-sanfona';
 
 class Form extends React.Component {
   render(){
+    /* Si el elemento que tiene clase "react-sanfona-item-body" tiene area-hidden="false", que la flecha se gire 90 grados (o tenga otra clase). Que esta función se redenderize con cada cambio ¿usar referencias? ej: this.title = React.createRef() /// <h1 ref = { this.title }>Hola comunidad</h1>*/
     return (
       <section className="forms">
         <div className="section-wrapper">
@@ -17,9 +18,12 @@ class Form extends React.Component {
             <AccordionItem
             key={index}
             title={item}
-            id={index}>
+            id={index}
+            //ref="itemRef"
+            >
+            
 
-            <div>
+            <div ref="itemRef">
               {index === 0 ? (
                   <Design/>
                 ) : null}
