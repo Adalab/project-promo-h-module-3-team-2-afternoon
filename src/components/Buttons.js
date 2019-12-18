@@ -13,8 +13,9 @@ const Buttons = props => {
         <button
             type="button"
             className={btnClass}
-        // onClick={action}
+            // onClick={action}
         >
+            {props.children}
             {text}
         </button>
     );

@@ -1,5 +1,7 @@
 import React from 'react';
 import ErrorMessage from './Error-message';
+import Buttons from "./Buttons";
+
 
 class Fill extends React.Component{
     render(){
@@ -20,7 +22,7 @@ class Fill extends React.Component{
                             <input id="image-input" type="file" name="image" className="hidden js__profile-upload-btn"
                             required/>
                             <div className="profile-picture__upload">
-                                <button type="button" className="btn-upload js__profile-trigger">Añadir imagen</button>
+                            <Buttons btnClass='btn-upload js__profile-trigger' text='Añadir imagen'></Buttons>
                                 <div className="thumbnail js__profile-preview"></div>
                             </div>
                             <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
