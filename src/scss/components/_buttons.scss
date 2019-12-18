@@ -10,6 +10,8 @@
     font-family: 'Open Sans', sans-serif;
     background: none;
     cursor: pointer;
+    @include hoverButton();
+
 }
 
 .btn-upload{
@@ -31,6 +33,8 @@
     font-size: rem(18);
     text-transform: uppercase;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    @include hoverButton();
 }
 
 .btn-create-inactive{
@@ -45,4 +49,5 @@
     color: $color-white;
     font-size: rem(14);
     line-height: 30px;
+    @include hoverButton();
 }
