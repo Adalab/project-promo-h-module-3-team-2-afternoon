@@ -11,6 +11,10 @@
     }
 }
 
+/*Formularios*/
+
+
+
 .select-palette2{
     .card__id{
         border-left: solid 5px $color-palette2c2;
@@ -42,4 +46,165 @@
 .contact-icon-palette3{
     border: solid 2px $color-palette3c3;
     color: $color-palette3c1;
+}
+
+[data-state="tabbordion"] {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    position: absolute;
+    position: fixed;
+    width: 1px;
+    z-index: -1;
+}
+
+.accordion {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.accordion-panel {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.accordion-panel:after {
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.accordion-panel--between,
+.accordion-panel--last {
+    border-top: 1px solid #D2D2D2;
+}
+
+.accordion-title {
+    background: #EBEBEB;
+    color: #363636;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    padding: 1rem;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.accordion-title--checked {
+    -webkit-transition: background-color 125ms ease-in-out, border-radius 62.5ms ease-in-out;
+    transition: background-color 125ms ease-in-out, border-radius 62.5ms ease-in-out;
+}
+
+.accordion-title--unchecked {
+    -webkit-transition: background-color 125ms ease-in-out, border-radius 125ms ease-in-out 312.5ms;
+    transition: background-color 125ms ease-in-out, border-radius 125ms ease-in-out 312.5ms;
+}
+
+/* fix iOS touch not triggering a click from child elements */
+.accordion-title > * {
+    pointer-events: none;
+}
+
+.accordion-title--first {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.accordion-animator--last,
+.accordion-content--last,
+.accordion-title--last.accordion-title--no-content,
+.accordion-title--last.accordion-title--unchecked {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.accordion-title--content:before {
+    content: "\f107";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: 1.5em;
+    line-height: 1rem;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: -webkit-transform 375ms ease-in-out;
+    transition: transform 375ms ease-in-out;
+}
+
+.accordion-title--checked {
+    background: #FAFAFA;
+}
+
+.accordion-title--checked:before {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.accordion-title:active:before,
+[data-state="tabbordion"]:focus ~ .accordion-title:before {
+    color: #b63;
+}
+
+.accordion-animator {
+    background-color: #EBEBEB;
+    -webkit-transition: background-color 125ms ease-in-out, height 375ms ease-in-out;
+    transition: background-color 125ms ease-in-out, height 375ms ease-in-out;
+}
+
+.accordion-animator:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+
+.accordion-animator--checked {
+    background-color: #FAFAFA;
+}
+
+.accordion-content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #363636;
+    display: none;
+    float: left;
+    padding: 0 1em;
+    width: 100%;
+}
+
+.accordion-content--animated {
+    display: block;
+    opacity: 0;
+    transform: translateY(-50%);
+    -webkit-transition: opacity 375ms ease-in-out, transform 375ms ease-in-out;
+    transition: opacity 375ms ease-in-out, transform 375ms ease-in-out;
+}
+
+.accordion-content--marginTop {
+    margin-top: -65535px;
+    transform: translateY(-50%);
+    -webkit-transition: margin-top 375ms ease-in-out, opacity 375ms ease-in-out, transform 375ms ease-in-out;
+    transition: margin-top 375ms ease-in-out, opacity 375ms ease-in-out, transform 375ms ease-in-out;
+}
+
+.accordion-content--checked {
+    display: block;
+    opacity: 1;
+}
+
+.accordion-content--checked.accordion-content--animated {
+    transform: translateY(0);
+}
+
+.accordion-content--checked.accordion-content--marginTop {
+    margin-top: 0;
 }

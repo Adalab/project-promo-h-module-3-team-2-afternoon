@@ -5,12 +5,6 @@ class Share extends React.Component{
     render(){
         return (
             <section className="forms__section share">
-                <div className="form-top" id="form-top-share">
-                    <h2><i className="fas fa-share-alt"></i> Comparte</h2>
-                    <div className="form-arrow arrow-down" id="arrow-share">
-                        <i className="fas fa-chevron-down"></i>
-                    </div>
-                </div>
                 <div className="form-bottom" id="form-bottom-share">
                     <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
                     <button className="btn-create  btn-create-inactive" id="btn-create"><i className="far fa-address-card"></i>
@@ -26,3 +20,10 @@ class Share extends React.Component{
     }
 }
 export default Share;
+
+/*                <div className="form-top" id="form-top-share">
+                    <h2><i className="fas fa-share-alt"></i> Comparte</h2>
+                    <div className="form-arrow arrow-down" id="arrow-share">
+                        <i className="fas fa-chevron-down"></i>
+                    </div>
+                </div>*/

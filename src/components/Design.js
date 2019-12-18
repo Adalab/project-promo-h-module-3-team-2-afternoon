@@ -1,14 +1,10 @@
 import React from 'react';
 import Palette from './Palettes';
+//import Collapsibles from './Collapsibles';
 
-class Design extends React.Component{
-    render(){
+function Design (){
         return (
             <section className="forms__section design">
-                <div className="form-top" id="form-top-design">
-                    <h2><i className="far fa-object-ungroup"></i> Diseña</h2>
-                    <div className="form-arrow arrow-down form-arrow-collapse" id="arrow-design"><i className="fas fa-chevron-down"></i></div>
-                </div>
                 <div className="form-bottom form-bottom-collapse" id="form-bottom-design">
                     <p>Colores</p>
                     <ul>
@@ -25,7 +21,7 @@ class Design extends React.Component{
                 </div>
             </section>
         )
-    }
-}
+   }
+
 
 export default Design;
