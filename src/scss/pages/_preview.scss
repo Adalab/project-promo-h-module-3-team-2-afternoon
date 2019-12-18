@@ -32,6 +32,9 @@
 
         .btn-reset{
             margin-bottom: 20px;
+            i {
+                color: $color-text;
+            }
         }
 
         .card{

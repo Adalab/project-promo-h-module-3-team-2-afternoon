@@ -1,5 +1,7 @@
 import React from 'react';
 import ErrorMessage from './Error-message';
+import Buttons from "./Buttons";
+
 
 class Fill extends React.Component{
     constructor(props){
@@ -12,10 +14,6 @@ class Fill extends React.Component{
     render(){
         return (
             <section className="forms__section fill">
-                <div className="form-top" id="form-top-fill">
-                    <h2><i className="far fa-keyboard"></i> Rellena</h2>
-                    <div className="form-arrow arrow-down" id="arrow-fill"><i className="fas fa-chevron-down"></i></div>
-                </div>
                 <div className="form-bottom" id="form-bottom-fill">
                     <ul>
                         <li className="FullName">
@@ -31,7 +29,7 @@ class Fill extends React.Component{
                             <input id="image-input" type="file" name="image" className="hidden js__profile-upload-btn"
                             required/>
                             <div className="profile-picture__upload">
-                                <button type="button" className="btn-upload js__profile-trigger">Añadir imagen</button>
+                            <Buttons btnClass='btn-upload js__profile-trigger' text='Añadir imagen'></Buttons>
                                 <div className="thumbnail js__profile-preview"></div>
                             </div>
                             <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
@@ -63,3 +61,9 @@ class Fill extends React.Component{
     }
 }
 export default Fill;
+
+/*             <div className="form-top" id="form-top-fill">
+                    <h2><i className="far fa-keyboard"></i> Rellena</h2>
+                    <div className="form-arrow arrow-down" id="arrow-fill"><i className="fas fa-chevron-down"></i></div>
+                </div>*/
+                

@@ -1,19 +1,46 @@
 import React from 'react';
-import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
+import Design from './Design';
+import { Accordion, AccordionItem } from 'react-sanfona';
 
 const Form = props => {
     return (
         <section className="forms">
-            <div className="section-wrapper">
-                <form action="" method="POST" id="card__form">
-                    <Design />
+          <div className="section-wrapper">
+            <form action="" method="POST" id="card__form">
+            <Accordion>
+            {[<h2><i className="far fa-object-ungroup"></i> Diseña<i className="fas fa-chevron-down design-arrow form-arrow"></i></h2>, <h2><i className="far fa-keyboard"></i> Rellena<i className="fas fa-chevron-down fill-arrow form-arrow"></i></h2>,
+            <h2><i className="fas fa-share-alt"></i> Comparte<i className="fas fa-chevron-down share-arrow form-arrow"></i></h2>].map((item,index) => {
+            return (
+              <AccordionItem
+              key={index}
+              title={item}
+              id={index}
+              //ref="itemRef"
+              >
+              
+  
+              <div>
+                {index === 0 ? (
+                    <Design/>
+                  ) : null}
+  
+                {index === 1 ? (
                     <Fill onChangeHandler = {props.onChangeHandler}/>
+                  ) : null}
+  
+                {index === 2 ? (
                     <Share/>
-                </form>
-            </div>
-        </section>
+                  ) : null}
+              </div>
+            </AccordionItem>     
+          );}
+        )}
+          </Accordion>
+        </form>
+      </div>
+    </section>
     )
 }
 /*class Form extends React.Component {
@@ -31,4 +58,5 @@ const Form = props => {
         )
     }
 }*/
+
 export default Form;

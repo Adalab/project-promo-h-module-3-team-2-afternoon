@@ -1,11 +1,46 @@
 .forms{
+    .react-sanfona-item{
+        border-bottom: 1px solid $color-white-2;
+    }
+    h2{ 
+        padding: rem(10) 0 rem(10);
+        color: #54585a;
+        font-size: rem(18); 
+        font-family: 'Open Sans', sans-serif; 
+        text-transform: uppercase;
+        margin: 0;
+        font-weight: 600;
+        cursor: pointer;
 
+        i{
+            color:$color-main;
+            
+        }
+        .share-arrow{
+            margin-left: 190px;
+            color: #54585a;
+        }
+        .fill-arrow{
+            margin-left: 202px;
+            color: #54585a;
+        }
+        .design-arrow {
+            margin-left: 218px;
+            color: #54585a;
+        }
+        &:hover  > .form-arrow{
+            color: $color-main;
+        }
+    }
     @include media($tablet){
         grid-area: forms;
     }
     
     .section-wrapper{
         padding: 10px 20px;
+        @include media($tablet){
+            padding: 10px 30px 10px 0;
+        }
 
         .form-top{
             width: 100%;
@@ -19,15 +54,6 @@
                 color: $color-main;
             }
             
-            h2{
-                font-size: rem(18);  
-                text-transform: uppercase;
-                margin: 0;
-
-                i{
-                    color:$color-main;
-                }
-            }
 
             .form-arrow{
                 width: 18px;
@@ -41,10 +67,10 @@
             }
         }
 
-        .forms__section{
+        /*.forms__section{
             border-bottom: 1px solid $color-white-2;
             margin-bottom: 20px;
-        }
+        }*/
 
         .form-bottom{
             //max-height: 0px;
