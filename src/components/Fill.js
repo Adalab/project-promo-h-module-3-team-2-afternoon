@@ -26,12 +26,7 @@ class Fill extends React.Component{
                         </li>
                         <li className="profile-picture">
                             <label htmlFor="image"> Imagen de perfil<span>*</span></label>
-                            <input id="image-input" type="file" name="image" className="hidden js__profile-upload-btn"
-                            required/>
-                            <div className="profile-picture__upload">
-                            <Buttons btnClass='btn-upload js__profile-trigger' text='Añadir imagen'></Buttons>
-                                <div className="thumbnail js__profile-preview"></div>
-                            </div>
+                            {this.props.children}
                             <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
                         </li>
                         <li className="email">
