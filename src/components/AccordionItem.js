@@ -10,8 +10,8 @@ class AccordionItem extends React.Component {
   }
 
   toggleHandler = () => {
-    // this.props.onExpande(this.props.name);
-    const { name, onExpande } = this.props;
+    const name = this.props.name;
+    const onExpande = this.props.onExpande;
 
     onExpande(name);
   }

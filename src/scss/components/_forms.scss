@@ -13,7 +13,7 @@
             justify-content: space-between;
             flex-direction: row;
             align-items: center;
-            padding-bottom: 20px;
+            padding: 10px 0 10px;
             cursor: pointer;
 
             &:hover  > .form-arrow{
@@ -44,7 +44,7 @@
 
         .forms__section{
             border-bottom: 1px solid $color-white-2;
-            margin-bottom: 20px;
+            //margin-bottom: 20px;
         }
 
         .form-bottom {
