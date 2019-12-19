@@ -2,13 +2,17 @@ import React from "react";
 //import Buttons from "Buttons";
 import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
+import Buttons from "./Buttons";
 
 class CardPreview extends React.Component {
+    
     render() {
         return (
             <section className="preview">
                 <div className="preview__wrapper">
-                    <button id="btn-reset" className="btn-reset"><i className="far fa-trash-alt"></i> reset</button>
+                <Buttons btnClass='btn-reset' text=' reset'>
+                    <i className="far fa-trash-alt"></i>
+                </Buttons>
                     <div className="card select-palette1" id="cardId">
                         <div className="card__id">
                             <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
@@ -24,5 +28,8 @@ class CardPreview extends React.Component {
         )
     }
 }
-
+CardPreview.defaultProps = {
+    cardPreviewName: 'Nombre Apellido',
+    cardPreviewJob: 'Front-end developer'
+}
 export default CardPreview;
