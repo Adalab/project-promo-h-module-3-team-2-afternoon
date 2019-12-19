@@ -7,10 +7,20 @@ class Fill extends React.Component{
     constructor(props){
         super(props);
         this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.state = {
+            name: '',
+            lastName: '',
+            job: ''
+        }
     }
     onChangeHandler = event =>{
-        this.props.onChangeHandler(event.target.value)
+        this.setState({ 
+            name: event.target.value 
+        })
+        this.forceUpdate()
+        console.log(this.state.name)
     }
+
     render(){
         return (
             <section className="fill">
