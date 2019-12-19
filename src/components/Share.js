@@ -15,7 +15,7 @@ class Share extends React.Component{
                     <div className="card__share " id="card-share">
                         <p>La tarjeta ha sido creada:</p>
                         <p id="card-link" className="card__link">card link</p>
-                        <a id="twitter-share" href="" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
+                        <a id="twitter-share" href="#" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
                     </div>
                 </div>
             </section>

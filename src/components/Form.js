@@ -13,8 +13,9 @@ class Form extends React.Component {
     this.rotateArrow = this.rotateArrow.bind(this);
   }
 
-  rotateArrow(event) {
-    this.setState((prevState, props) => {
+  rotateArrow() {
+  console.log('ffff')
+      this.setState((prevState) => {
       let nextStyling;
       if (prevState.styling === '') {
           nextStyling = 'rotate';
