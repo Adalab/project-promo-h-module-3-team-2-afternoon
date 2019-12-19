@@ -6,17 +6,15 @@ import Buttons from "./Buttons";
 class Share extends React.Component{
     render(){
         return (
-            <section className="forms__section share">
-                <div className="form-bottom" id="form-bottom-share">
-                    <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
-                    <Buttons btnClass='btn-create  btn-create-inactive' text=' crear tarjeta'>
-                        <i className="far fa-address-card"></i>
-                    </Buttons>
-                    <div className="card__share " id="card-share">
-                        <p>La tarjeta ha sido creada:</p>
-                        <p id="card-link" className="card__link">card link</p>
-                        <a id="twitter-share" href="" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
-                    </div>
+            <section className="share">
+                <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
+                <Buttons btnClass='btn-create  btn-create-inactive' text=' crear tarjeta'>
+                    <i className="far fa-address-card"></i>
+                </Buttons>
+                <div className="card__share " id="card-share">
+                    <p>La tarjeta ha sido creada:</p>
+                    <p id="card-link" className="card__link">card link</p>
+                    <a id="twitter-share" href="" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
                 </div>
             </section>
         )
