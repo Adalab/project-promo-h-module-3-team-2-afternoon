@@ -12,7 +12,7 @@ class Form extends React.Component {
     };
     this.rotateArrow = this.rotateArrow.bind(this);
   }
-
+  
   rotateArrow() {
   console.log('ffff')
       this.setState((prevState) => {
