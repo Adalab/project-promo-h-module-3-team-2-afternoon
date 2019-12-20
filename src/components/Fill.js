@@ -10,7 +10,7 @@ class Fill extends React.Component{
         //this.onChangeHandler2 = this.onChangeHandler2.bind(this);
         this.state = {
             name: '',
-            lastName: '',
+            //lastName: '',
             job: ''
         }
     }
