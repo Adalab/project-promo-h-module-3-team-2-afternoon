@@ -1,101 +1,71 @@
 .forms{
-    .react-sanfona-item{
-        border-bottom: 1px solid $color-white-2;
-    }
-    h2{ 
-        padding: rem(10) 0 rem(10);
-        color: #54585a;
-        font-size: rem(18); 
-        font-family: 'Open Sans', sans-serif; 
-        text-transform: uppercase;
-        margin: 0;
-        font-weight: 600;
-        cursor: pointer;
 
-        i{
-            color:$color-main;
-            
-        }
-        .share-arrow{
-            margin-left: 190px;
-            color: #54585a;
-        }
-        .fill-arrow{
-            margin-left: 202px;
-            color: #54585a;
-        }
-        .design-arrow {
-            margin-left: 218px;
-            color: #54585a;
-        }
-        &:hover  > .form-arrow{
-            color: $color-main;
-        }
-    }
     @include media($tablet){
         grid-area: forms;
     }
     
     .section-wrapper{
-        padding: 10px 20px;
-        @include media($tablet){
-            padding: 10px 30px 10px 0;
-        }
+        padding: 10px 20px 20px 0;
 
         .form-top{
             width: 100%;
             display: flex;
             justify-content: space-between;
+            flex-direction: row;
             align-items: center;
-            padding-bottom: 20px;
+            padding: 10px 0 10px;
             cursor: pointer;
 
             &:hover  > .form-arrow{
                 color: $color-main;
             }
             
+            h2{
+                font-size: rem(18);  
+                text-transform: uppercase;
+                margin: 0;
 
-            .form-arrow{
+                i{
+                    color:$color-main;
+                }
+            }
+
+            .form-arrow {
                 width: 18px;
                 text-align: right;
                 font-size: rem(18);
-                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), color 0.5s ease;
-            }
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), color 0.25s ease-in-out;
 
-            .form-arrow-collapse{
-                transform: rotate(180deg);
+                &-rotate {
+                    transform: rotate(180deg);
+                }
             }
         }
 
-        /*.forms__section{
+        .forms__section{
             border-bottom: 1px solid $color-white-2;
-            margin-bottom: 20px;
-        }*/
+            //margin-bottom: 20px;
+        }
 
-        .form-bottom{
-            //max-height: 0px;
-            transition:max-height 0.5s; 
-            overflow:hidden;
+        .form-bottom {
+            height: auto;
+            max-height: 0;
+            transition: max-height 0.25s linear; 
+            overflow: hidden;
 
-            label span{
-                color: $color-main;
+            &-open  {
+                max-height: 550px;
             }
-        
-        }
-        .form-bottom-collapse{
-            max-height: 700px;
         }
 
-        .design{
-
+        .design {
             @include media($tablet){
                 margin-top: 0px;
             }
 
-            .form-bottom{
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
 
                 p{
                     font-size: rem(14);
@@ -166,69 +136,65 @@
                         background-color: $color-palette3c3;
                     }
                 }
-            }
         }
 
         .fill{
+
+            label{
+                color: $color-secondary-darker;
+                font-size: rem(14);
+            }
             
-            .form-bottom{
+            input{
+                height: 30px;
+                padding: 0 5px;
+                display: block;
+                width: 100%;
+                margin-top: 10px;
+                margin-bottom: 20px;
+                font-size: rem(14);
+                border: solid 1px $color-secondary-lighter;
 
-                label{
-                    color: $color-secondary-darker;
-                    font-size: rem(14);
+                &:focus{
+                    border: solid 2px $color-main;
+                    outline: none;
                 }
-                
-                input{
-                    height: 30px;
-                    padding: 0 5px;
-                    display: block;
-                    width: 100%;
-                    margin-top: 10px;
-                    margin-bottom: 20px;
-                    font-size: rem(14);
-                    border: solid 1px $color-secondary-lighter;
+            }
 
-                    &:focus{
-                        border: solid 2px $color-main;
-                        outline: none;
+            .input-error{
+            border: solid 1px $color-error;
+
+            }
+
+            .text-error{
+                color: $color-error;
+                font-size: rem(11);
+                margin-top: -12px;
+            }
+
+            ::placeholder{
+                color: $color-white-2;
+            }
+            
+            .profile-picture{
+
+                &__upload{
+                    display: flex;
+                    align-items: center; margin: 10px 0 20px 0;
+
+                    .thumbnail{
+                        width: 30px;
+                        height: 30px;
+                        margin-left: 20px;
+                        border: solid 1px $color-secondary-lighter;
+                        //background-image: url('../images/--profile-picture.gif');
+                        background-size: cover;
+                        background-position: center;
                     }
-               }
+                }
 
-               .input-error{
-                border: solid 1px $color-error;
-
-               }
-
-               .text-error{
-                   color: $color-error;
-                   font-size: rem(11);
-                   margin-top: -12px;
-               }
-
-               ::placeholder{
-                   color: $color-white-2;
-               }
-               
-               .profile-picture{
-
-                    &__upload{
-                        display: flex;
-                        align-items: center; margin: 10px 0 20px 0;
-    
-                        .thumbnail{
-                            width: 30px;
-                            height: 30px;
-                            margin-left: 20px;
-                            border: solid 1px $color-secondary-lighter;
-                            // background-image: url('../images/profile-picture.gif');
-                            background-size: cover;
-                            background-position: center;
-                        }
-                    }
-
-                    .js__profile-upload-btn{
-                        display: none;
-                    }
+                .js__profile-upload-btn{
+                    display: none;
                 }
             }
         }
