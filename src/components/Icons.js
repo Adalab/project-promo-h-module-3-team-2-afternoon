@@ -18,7 +18,7 @@ const Icon = props => {
 
   return (
     <a id={props.linkId} href={props.linkHref} target={props.linkTarget}>
-      <li id={props.liId} className="contact-icon contact-icon-palette1 hidden">
+      <li id={props.liId} className="contact-icon contact-icon-palette1"/*className="contact-icon contact-icon-palette1 hidden"*/>
         <i className={props.iconClass} aria-hidden="true"></i>
       </li>
     </a>

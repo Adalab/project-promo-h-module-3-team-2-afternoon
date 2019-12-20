@@ -6,18 +6,15 @@ class Palette extends React.Component{
         this.onChangeHandlerColor = this.onChangeHandlerColor.bind(this);
         //this.onChangeHandler2 = this.onChangeHandler2.bind(this);
         this.state = {
-            color: ''
+            color: '1'
         }
     }
 
     onChangeHandlerColor = (event, props) =>{
-        //console.log(`Seleccionaste ${event.target.value}`);
         this.setState({color: this.props.inputValue}, this.palettes);
-        
         event.preventDefault();
- 
-        //setTimeout(() => console.clear(), 1000);
         }
+
     render(){
         console.log(`Seleccionaste ${this.state.color}`)
         return (
