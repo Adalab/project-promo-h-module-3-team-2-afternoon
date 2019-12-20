@@ -1,35 +1,10 @@
 import React from "react";
 //import Buttons from "Buttons";
 import PreviewIcons from "./PreviewIcons";
-import GetAvatar from './GetAvatar';
-import Profile from "./Profile";
 import Buttons from "./Buttons";
-import defaultImage from './defaultImage';
-
 
 class CardPreview extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          isAvatarDefault: true,
-          profile: {
-            avatar: defaultImage
-          }
-        };
-        this.updateAvatar = this.updateAvatar.bind(this);
-      }
-    updateAvatar(img) {
-        const { profile } = this.state;
-        this.setState(prevState => {
-          const newProfile = { ...profile, photo: img };
-          return {
-            profile: newProfile,
-            isAvatarDefault: false
-          };
-        });
-    }
     render() {
-        const {profile, isAvatarDefault} = this.state;
         return (
             <section className="preview">
                 <div className="preview__wrapper">
@@ -41,11 +16,7 @@ class CardPreview extends React.Component {
                             <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
                             <p id="cardJob" className="card__id--role">Front-end developer</p>
                         </div>
-                        
-                        <Profile avatar={profile.avatar} />
-                        {/*<div className="card__photo js__profile-image">
-                            <img src={profilePic} alt="profileName" className="card__photo" />
-                        </div>*/}
+                        {this.props.children}
                         <PreviewIcons iconsList={this.props.iconsList} />
                     </div>
                 </div>

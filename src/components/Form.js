@@ -3,34 +3,9 @@ import Fill from './Fill';
 import Share from './Share';
 import Design from './Design';
 import { Accordion, AccordionItem } from 'react-sanfona';
-import GetAvatar from './GetAvatar';
-import Profile from "./Profile";
-import defaultImage from './defaultImage';
-
 
 class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isAvatarDefault: true,
-      profile: {
-        avatar: defaultImage
-      }
-    };
-    this.updateAvatar = this.updateAvatar.bind(this);
-  }
-  updateAvatar(img) {
-    const {profile} = this.state;
-    this.setState(prevState => {
-      const newProfile = {...profile, avatar: img};
-      return {
-        profile: newProfile,
-        isAvatarDefault: false
-      }
-    });
-  }
   render() {
-    const {profile, isAvatarDefault} = this.state;
   return (
         <section className="forms">
           <div className="section-wrapper">
@@ -46,7 +21,6 @@ class Form extends React.Component {
               //ref="itemRef"
               >
               
-  
               <div>
                 {index === 0 ? (
                     <Design/>
@@ -54,11 +28,8 @@ class Form extends React.Component {
   
                 {index === 1 ? (
                     <Fill onChangeHandler = {this.props.onChangeHandler}>
-                      <GetAvatar
-                        avatar={profile.avatar} 
-                        isAvatarDefault={isAvatarDefault} 
-                        updateAvatar={this.updateAvatar}
-                      />
+                      {this.props.children}
+
                     </Fill>
                   ) : null}
   

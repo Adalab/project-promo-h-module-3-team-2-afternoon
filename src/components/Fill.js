@@ -1,7 +1,5 @@
 import React from 'react';
 import ErrorMessage from './Error-message';
-import Buttons from "./Buttons";
-
 
 class Fill extends React.Component{
     constructor(props){
