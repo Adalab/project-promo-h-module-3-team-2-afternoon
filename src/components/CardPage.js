@@ -11,8 +11,10 @@ class CardPage extends React.Component {
     super(props);
     this.state = {
       name: '',
-      job: ''
+      job: '',
+      color: 1
     }
+    this.onChangeHandlerColor = this.onChangeHandlerColor.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
   onChangeHandler(data, id){
@@ -33,13 +35,36 @@ class CardPage extends React.Component {
         job: newJob };
     });
   }
+
+  onChangeHandlerColor(_event, id){
+    console.log('hola')
+    this.setState((prevState, props) => {
+      let newColor = prevState.color;
+      if (id === 'Palette1') {
+        newColor = 1;
+      } else if (id === 'Palette2') {
+        newColor = 2;
+      } else if (id === 'Palette3') {
+        newColor = 3;
+      } else {
+        newColor = 1;
+      }
+      return { 
+        color: newColor, };
+    });
+  }
+    /*this.setState({color: this.props.inputValue}, this.palettes);
+    event.preventDefault();
+    console.log(`Seleccionaste ${this.state.color}`)
+    }*/
+
   render(data) {
     return (
       <div>
         <Header />
         <main className="main__card">
-        <CardPreview name={this.state.name} job={this.state.job}/>
-        <Form onChangeHandler={this.onChangeHandler}/>
+        <CardPreview name={this.state.name} job={this.state.job} color={this.state.color}/>
+        <Form onChangeHandler={this.onChangeHandler} onChangeColor={this.onChangeHandlerColor} color={this.state.color}/>
         </main>
         <Footer />
       </div>

@@ -13,6 +13,7 @@ class Fill extends React.Component{
             job: ''
         }
     }
+
     onChangeHandler = event =>{
         this.setState({ 
             name: event.target.value 
