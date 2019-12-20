@@ -3,6 +3,7 @@ import '../scss/main.scss';
 import Header from './Header';
 import Footer from './Footer';
 import Form from './Form'
+import Fill from './Fill'
 import CardPreview from './CardPreview';
 //import { Accordion, AccordionItem } from 'react-sanfona';
 
@@ -39,6 +40,7 @@ class CardPage extends React.Component {
         <Header />
         <main className="main__card">
         <CardPreview name={this.state.name} job={this.state.job}/>
+        <Fill onChangeHandler={this.onChangeHandler}/>
         <Form onChangeHandler={this.onChangeHandler}/>
         </main>
         <Footer />
