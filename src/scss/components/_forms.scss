@@ -172,31 +172,9 @@
                 margin-top: -12px;
             }
 
-            ::placeholder{
-                color: $color-white-2;
-            }
-            
-            .profile-picture{
-
-                &__upload{
-                    display: flex;
-                    align-items: center; margin: 10px 0 20px 0;
-
-                    .thumbnail{
-                        width: 30px;
-                        height: 30px;
-                        margin-left: 20px;
-                        border: solid 1px $color-secondary-lighter;
-                        //background-image: url('../images/--profile-picture.gif');
-                        background-size: cover;
-                        background-position: center;
-                    }
-                }
-
-                .js__profile-upload-btn{
-                    display: none;
-                }
-            }
+               ::placeholder{
+                   color: $color-white-2;
+               }       
         }
 
         .share{

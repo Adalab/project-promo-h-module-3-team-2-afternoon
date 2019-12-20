@@ -38,7 +38,9 @@ class Form extends React.Component {
                 <Design/>
               </AccordionItem>
               <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
-                <Fill onChangeHandler = {this.props.onChangeHandler}/>
+                <Fill onChangeHandler = {this.props.onChangeHandler}>
+                  {this.props.children}
+                </Fill>
               </AccordionItem>
               <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
                 <Share/>
