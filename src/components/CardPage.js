@@ -4,9 +4,6 @@ import Header from './Header';
 import Footer from './Footer';
 import Form from './Form'
 import CardPreview from './CardPreview';
-import GetAvatar from './GetAvatar';
-import Profile from './Profile';
-import defaultImage from './defaultImage';
 import { Accordion, AccordionItem } from 'react-sanfona';
 
 class CardPage extends React.Component {

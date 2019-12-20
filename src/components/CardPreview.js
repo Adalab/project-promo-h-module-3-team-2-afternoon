@@ -1,6 +1,5 @@
 import React from "react";
 //import Buttons from "Buttons";
-import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
 import Profile from "./Profile";
 import Buttons from "./Buttons";
@@ -36,15 +35,15 @@ class CardPreview extends React.Component {
                 <Buttons btnClass='btn-reset' text=' reset'>
                     <i className="far fa-trash-alt"></i>
                 </Buttons>
-                    <Profile avatar={profile.avatar} />
                     <div className="card select-palette1" id="cardId">
                         <div className="card__id">
                             <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
                             <p id="cardJob" className="card__id--role">Front-end developer</p>
                         </div>
-                        <div className="card__photo js__profile-image">
+                        <Profile avatar={profile.avatar} />
+                        {/*<div className="card__photo js__profile-image">
                             <img src={profilePic} alt="profileName" className="card__photo" />
-                        </div>
+                        </div>*/}
                         <PreviewIcons iconsList={this.props.iconsList} />
                     </div>
                 </div>
