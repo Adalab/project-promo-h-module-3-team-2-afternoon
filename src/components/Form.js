@@ -4,6 +4,7 @@ import Share from './Share';
 import Design from './Design';
 import { Accordion, AccordionItem } from 'react-sanfona';
 import GetAvatar from './GetAvatar';
+import Profile from "./Profile";
 import defaultImage from './defaultImage';
 
 

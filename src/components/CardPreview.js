@@ -1,6 +1,7 @@
 import React from "react";
 //import Buttons from "Buttons";
 import PreviewIcons from "./PreviewIcons";
+import GetAvatar from './GetAvatar';
 import Profile from "./Profile";
 import Buttons from "./Buttons";
 import defaultImage from './defaultImage';
@@ -28,7 +29,7 @@ class CardPreview extends React.Component {
         });
     }
     render() {
-        const profile = this.state;
+        const {profile, isAvatarDefault} = this.state;
         return (
             <section className="preview">
                 <div className="preview__wrapper">
@@ -40,6 +41,7 @@ class CardPreview extends React.Component {
                             <h3 id="cardName" className="card__id--name">Nombre Apellido</h3>
                             <p id="cardJob" className="card__id--role">Front-end developer</p>
                         </div>
+                        
                         <Profile avatar={profile.avatar} />
                         {/*<div className="card__photo js__profile-image">
                             <img src={profilePic} alt="profileName" className="card__photo" />
