@@ -16,4 +16,6 @@
 @import 'pages/home';
 @import 'pages/dynamic';
 
-
+.rotate{
+  transform: rotate(180deg);
+}

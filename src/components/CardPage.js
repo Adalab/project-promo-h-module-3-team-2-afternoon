@@ -7,22 +7,39 @@ import CardPreview from './CardPreview';
 import GetAvatar from './GetAvatar';
 import Profile from './Profile';
 import defaultImage from './defaultImage';
-import { Accordion, AccordionItem } from 'react-sanfona';
 
 class CardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+          name: '',
+          job: '',
           isAvatarDefault: true,
           profile: {
             avatar: defaultImage
           }
         };
+        this.onChangeHandler = this.onChangeHandler.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
       }
-    onChangeHandler(data) {
+      onChangeHandler(data, id){
         console.log(data)
-    }
+        console.log(id)
+        this.setState((prevState, props) => {
+          let newName = prevState.name;
+          let newJob = prevState.job;
+          if (id === 'fullName') {
+            newName = data;
+          } else if (id === 'job') {
+            newJob = data;
+          } else {
+            console.log(`onChangeHandler(id=${id}) valor no está considerado`)
+          }
+          return { 
+            name: newName, 
+            job: newJob };
+        });
+      }
     updateAvatar(img) {
         const {profile} = this.state;
         this.setState(prevState => {
@@ -52,7 +69,6 @@ class CardPage extends React.Component {
                 <Footer />
             </div>
         );
+      }
     }
-}
-
 export default CardPage;
