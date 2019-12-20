@@ -28,6 +28,7 @@ class Form extends React.Component {
 
   render() {
     const accordionOpen = this.state.accordionOpen;
+
     return (
       <section className="forms">
         <div className="section-wrapper">
