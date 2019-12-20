@@ -6,7 +6,7 @@ import Form from './Form'
 import CardPreview from './CardPreview';
 //import { Accordion, AccordionItem } from 'react-sanfona';
 
-class App extends React.Component {
+class CardPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,7 +49,7 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default CardPage;
 // import React from 'react';
 // import './scss/main.scss';
 // import Header from './components/Header';
