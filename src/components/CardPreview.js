@@ -1,5 +1,4 @@
 import React from "react";
-//import Buttons from "Buttons";
 import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
 import Buttons from "./Buttons";

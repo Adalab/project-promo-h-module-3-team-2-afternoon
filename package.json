@@ -13,8 +13,7 @@
     "react-dom": "^16.12.0",
     "react-responsive-accordion": "^1.0.0",
     "react-sanfona": "^1.4.0",
-    "react-scripts": "3.3.0",
-    "react-tabbordion": "^1.0.5"
+    "react-scripts": "3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
