@@ -1,0 +1,33 @@
+.footer {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-textlight;
+    font-family: 'Open Sans', sans-serif;
+    font-size: rem(14);
+    line-height: 20px;
+    width: 100%;
+    height: 110px;
+    border-top: solid 1px $color-white-2;
+    //en zeplin da la sensación de que el footer tiene la raya de arriba pero con ese color no se ve//
+    @include media($tablet){
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+        padding: 20px 40px;
+    }
+
+    &__copyright{
+        margin: 0px auto 20px;
+
+        @include media($tablet){
+            margin: 0px;
+        }
+    }
+
+    &__logo-image {
+        height: 40px;
+    }
+}

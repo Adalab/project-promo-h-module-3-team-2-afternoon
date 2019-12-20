@@ -1,0 +1,19 @@
+@import 'core/functions';
+@import 'core/mixins';
+@import 'core/variables';
+@import 'vendors/normalize';
+@import 'layout/default';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/hero';
+@import 'components/typography';
+@import 'pages/preview';
+@import 'pages/contact';
+@import 'pages/home';
+@import 'pages/dynamic';
+
+.rotate{
+  transform: rotate(180deg);
+}

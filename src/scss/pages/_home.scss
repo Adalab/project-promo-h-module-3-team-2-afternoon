@@ -1,0 +1,126 @@
+.main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-background;
+    width:100%;
+    height: calc(100vh - 110px);
+
+    @include media($tablet){
+        height: calc(100vh - 60px);
+    }
+
+    &__logo { 
+        width:250px;
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+
+        @include media($tablet){
+            width: 419px;
+        }
+
+        &-image{
+            width: 100%;
+        }
+    }
+
+    &__title {
+        font-size: rem(19.2);
+        font-family: 'Merriweather', serif;
+        color: $color-main;
+        margin-top: 35.4px;
+        margin-bottom: 3px;
+
+        @include media($tablet){
+            font-size: rem(24);
+            margin-top: 31px;
+        }
+    }
+
+    &__text {
+        font-size: rem(12.8);
+        font-family: 'Open Sans', sans-serif;
+        color: $color-palette1c1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+        margin-bottom: 18px;
+
+        @include media($tablet){
+            font-size: rem(16);
+            margin-bottom: 27px;
+        }
+    }
+
+    &__icons {
+        display: grid;
+        grid-template-columns: 90px 90px 90px;
+        grid-template-rows: 73px;
+        text-align: center;
+        border: solid 1.6px rgba(225, 115, 52, 0.21);
+        border-radius: 4px;
+
+        @include media($tablet){
+            grid-template-columns: 108px 108px 108px;
+            grid-template-rows: 86px;
+        }
+
+        i{
+            color: $color-main;
+            height: 25px;
+            width: 32px;
+            font-size: rem(22.4);
+            text-align: center;
+            margin-top: 15px;
+
+            @include media($tablet){
+                font-size: rem(28);
+                margin-top: 20px;
+            }
+
+        }
+    }
+
+    &__text--icons {
+        font-size: rem(12.8);
+        font-family: 'Open Sans', sans-serif;
+        color: $color-text;
+        text-align: center;
+        margin-top: 0px;
+
+        @include media($tablet){
+            font-size: rem(16);
+        }
+    }
+
+    &__link {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+
+        &--a {
+            text-decoration: none;
+            color: $color-white;
+            font-size: rem(16);
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 129px;
+            height: 42px;
+            background-color: $color-palette1c2;
+            border-radius: 21px;
+            margin-bottom: 30px;
+
+            @include media($tablet){
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+
