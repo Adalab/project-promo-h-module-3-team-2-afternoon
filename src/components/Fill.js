@@ -9,8 +9,9 @@ class Fill extends React.Component{
         this.onChangeHandler = this.onChangeHandler.bind(this);
     }
     onChangeHandler = event =>{
-        this.props.onChangeHandler(event.target.value)
+        this.props.onChangeHandler(event.target.value, event.target.id)
     }
+    
     render(){
         return (
             <section className="forms__section fill">
@@ -60,6 +61,7 @@ class Fill extends React.Component{
         )
     }
 }
+
 export default Fill;
 
 /*             <div className="form-top" id="form-top-fill">
