@@ -32,7 +32,7 @@ class Form extends React.Component {
     return (
       <section className="forms">
         <div className="section-wrapper">
-          <form action="" method="POST">
+          <form action="" method="POST" id="card__form">
             <Accordion>
               <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
                 <Design/>
