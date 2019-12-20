@@ -7,7 +7,7 @@ class Fill extends React.Component{
     constructor(props){
         super(props);
         this.onChangeHandler = this.onChangeHandler.bind(this);
-        this.onChangeHandler2 = this.onChangeHandler.bind(this);
+        //this.onChangeHandler2 = this.onChangeHandler2.bind(this);
         this.state = {
             name: '',
             lastName: '',
@@ -15,6 +15,7 @@ class Fill extends React.Component{
         }
     }
     onChangeHandler = event =>{
+        this.props.onChangeHandler(event.target.value, event.target.id)
         this.setState({ 
             name: event.target.value 
         })
@@ -22,10 +23,10 @@ class Fill extends React.Component{
         console.log(this.state.name)
     }
 
-    onChangeHandler2 = event =>{
+    /*onChangeHandler2 = event =>{
 
-        this.props.onChangeHandler(event.target.value, event.target.id)
-    }
+        this.props.onChangeHandler2(event.target.value, event.target.id)
+    }*/
     
     render(){
         return (
@@ -33,7 +34,7 @@ class Fill extends React.Component{
                 <ul>
                     <li className="FullName">
                         <label htmlFor="FullName">Nombre completo<span>*</span></label>
-                        <input onChange={this.onChangeHandler,this.onChangeHandler2} placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
+                        <input onChange={this.onChangeHandler} placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
                     </li>
                     <li className="job">
                         <label htmlFor="job">Puesto<span>*</span></label>
