@@ -2,15 +2,6 @@ import React from 'react';
 import ErrorMessage from './Error-message';
 
 class Fill extends React.Component{
-    constructor(props){
-        super(props);
-        /*this.onChangeHandler = this.onChangeHandler.bind(this);
-        this.state = {
-            name: '',
-            lastName: '',
-            job: ''
-        }*/
-    }
 
     onChangeHandler = event => {
         this.props.onChangeHandler(event);

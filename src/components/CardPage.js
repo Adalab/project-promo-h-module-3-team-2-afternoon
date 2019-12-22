@@ -12,13 +12,18 @@ class CardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          palette: '',
+          palette: 1,
           fullName: '',
           job: '',
           isAvatarDefault: true,
           profile: {
             avatar: defaultImage
-          }
+          },
+          phone: '',
+          email: '',
+          linkedin: '',
+          github: ''
+
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
@@ -49,7 +54,7 @@ class CardPage extends React.Component {
         <div>
             <Header />
             <main className="main__card">
-                <CardPreview fullName={this.state.fullName} job={this.state.job}>
+                <CardPreview palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
                 <Form onChangeHandler={this.onChangeHandler}>

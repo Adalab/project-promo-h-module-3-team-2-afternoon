@@ -6,36 +6,20 @@ const PreviewIcons = props => {
     <div className='card__contacts'>
       <ul>
         <Icons
-          linkId="linkPhone"
           linkHref=""
-          linkTarget=""
-          LiId="cardPhone"
           iconClass='fas fa-mobile-alt'
-          iconsList={props.iconsList}
         />
         <Icons
-          linkId="linkEmail"
-          //LinkHref={'https://' + props.iconsList.email}
-          LinkTarget="_blank"
-          LiId="cardEmail"
+          linkHref={'https://' + props.email}
           iconClass='fab fas fa-envelope'
-          iconsList={props.iconsList}
         />
         <Icons
-          linkId="linkLinkedin"
-          //LinkHref={'https://linkedin.com/in/' + props.iconsList.linkedin}
-          LinkTarget="_blank"
-          LiId="cardLinkedin"
+          linkHref={'https://linkedin.com/in/' + props.linkedin}
           iconClass='fab fa-linkedin-in'
-          iconsList={props.iconsList}
         />
         <Icons
-          linkId="linkGithub"
-          //LinkHref={'https://github.com/' + props.iconsList.github}
-          LinkTarget="_blank"
-          LiId="cardGithub"
+          linkHref={'https://github.com/' + props.github}
           iconClass='fab  fa-github-alt'
-          iconsList={props.iconsList}
         />
       </ul>
     </div>

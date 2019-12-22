@@ -35,7 +35,7 @@ class Form extends React.Component {
           <form action="" method="POST" id="card__form">
             <Accordion>
               <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
-                <Design/>
+                <Design onChangeHandler={this.props.onChangeHandler}/>
               </AccordionItem>
               <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
                 <Fill onChangeHandler = {this.props.onChangeHandler}>
