@@ -1,14 +1,10 @@
 import React from "react";
-import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
 import Buttons from "./Buttons";
 import PropTypes from 'prop-types';
 
 
 class CardPreview extends React.Component {
-    constructor(props){
-        super(props);}
-    
     render() {
         return (
             <section className="preview">
@@ -21,9 +17,7 @@ class CardPreview extends React.Component {
                             <h3 id="cardName" className="card__id--name">{this.props.name === '' ? "Nombre Apellido" : this.props.name}</h3>
                             <p id="cardJob" className="card__id--role">{this.props.job === '' ? "Front-end Developer" : this.props.job}</p>
                         </div>
-                        <div className="card__photo js__profile-image">
-                            <img src={profilePic} alt="profileName" className="card__photo" />
-                        </div>
+                        {this.props.children}
                         <PreviewIcons iconsList={this.props.iconsList} />
                     </div>
                 </div>
