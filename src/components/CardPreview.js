@@ -14,7 +14,7 @@ class CardPreview extends React.Component {
                 </Buttons>
                     <div className="card select-palette1" id="cardId">
                         <div className="card__id">
-                            <h3 id="cardName" className="card__id--name">{this.props.name === '' ? "Nombre Apellido" : this.props.name}</h3>
+                            <h3 id="cardName" className="card__id--name">{this.props.fullName === '' ? "Nombre Apellido" : this.props.fullName}</h3>
                             <p id="cardJob" className="card__id--role">{this.props.job === '' ? "Front-end Developer" : this.props.job}</p>
                         </div>
                         {this.props.children}
