@@ -11,6 +11,10 @@
     }
 }
 
+/*Formularios*/
+
+
+
 .select-palette2{
     .card__id{
         border-left: solid 5px $color-palette2c2;
@@ -42,4 +46,8 @@
 .contact-icon-palette3{
     border: solid 2px $color-palette3c3;
     color: $color-palette3c1;
+}
+
+.rotate{
+    transform: rotate(180deg);
 }

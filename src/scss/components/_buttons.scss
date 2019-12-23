@@ -10,9 +10,11 @@
     font-family: 'Open Sans', sans-serif;
     background: none;
     cursor: pointer;
+    @include hoverButton();
+
 }
 
-.btn-upload{
+/*.btn-upload{
     width: 140px;
     height: 30px;
     background-color: $color-main;
@@ -20,7 +22,8 @@
     border-radius: 3px;
     font-size: rem(14);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.164);
-}
+    cursor: pointer;
+}*/
 
 .btn-create{
     width: 200px;
@@ -31,6 +34,8 @@
     font-size: rem(18);
     text-transform: uppercase;
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    @include hoverButton();
 }
 
 .btn-create-inactive{
@@ -45,4 +50,5 @@
     color: $color-white;
     font-size: rem(14);
     line-height: 30px;
+    @include hoverButton();
 }

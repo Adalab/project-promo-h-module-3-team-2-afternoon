@@ -4,3 +4,11 @@
         @content
     }
 }
+
+@mixin hoverButton() {
+    transition: 0.2s all ease-in-out;
+    &:hover {
+        transform: scale(1.02);
+        box-shadow: 2px 2px #00000049;
+    }
+};
