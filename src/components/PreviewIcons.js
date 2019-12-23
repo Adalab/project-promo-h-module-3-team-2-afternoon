@@ -6,19 +6,23 @@ const PreviewIcons = props => {
     <div className='card__contacts'>
       <ul>
         <Icons
-          linkHref=""
+          type= 'phone'
+          url={props.phone}
           iconClass='fas fa-mobile-alt'
         />
         <Icons
-          linkHref={'https://' + props.email}
+          type = 'email'
+          url={props.email}
           iconClass='fab fas fa-envelope'
         />
         <Icons
-          linkHref={'https://linkedin.com/in/' + props.linkedin}
+          type = 'linkedin'
+          url={props.linkedin}
           iconClass='fab fa-linkedin-in'
         />
         <Icons
-          linkHref={'https://github.com/' + props.github}
+          type = 'github'
+          url={props.github}
           iconClass='fab  fa-github-alt'
         />
       </ul>
