@@ -1,24 +1,19 @@
 import React from 'react';
 
+const TYPES_PREFIXES = {
+  email:'mailto:',
+  linkedin:'https://linkedin.com/in/',
+  github: 'https://github.com/'
+}
+
 const Icon = props => {
-
-  /*const ShowIcons = () => {
-    for (let icon in props.previewIconsList) {
-      if (props.id === icon.toString()) {
-        if (props.iconsList[icon] !== "") {
-          icon.classList.remove('hidden')
-        } else {
-          icon.classList.add('hidden');
-        }
-      }
-    }
-  };
-
-  ShowIcons();*/
+  const isHidden = !props.url || props.url === '';
+  const url = TYPES_PREFIXES[props.type] + props.url;
+  const clasNames = isHidden ? 'contact-icon hidden' : 'contact-icon';
 
   return (
-    <a id={props.linkId} href={props.linkHref} target={props.linkTarget}>
-      <li id={props.liId} className="contact-icon contact-icon-palette1"/*className="contact-icon contact-icon-palette1 hidden"*/>
+    <a href={url} target="_blank">
+      <li className={clasNames}>
         <i className={props.iconClass} aria-hidden="true"></i>
       </li>
     </a>

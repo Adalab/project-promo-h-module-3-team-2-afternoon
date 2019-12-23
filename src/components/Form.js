@@ -34,15 +34,15 @@ class Form extends React.Component {
         <div className="section-wrapper">
           <form action="" method="POST" id="card__form">
             <Accordion>
-              <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
-                <Design/>
+              <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
+                <Design onChangeHandler={this.props.onChangeHandler}/>
               </AccordionItem>
-              <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
+              <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
                 <Fill onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>
               </AccordionItem>
-              <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" onExpande={this.handleOpenAccordion} openName={accordionOpen}>
+              <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
                 <Share/>
               </AccordionItem>
             </Accordion>

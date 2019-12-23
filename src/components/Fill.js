@@ -2,30 +2,18 @@ import React from 'react';
 import ErrorMessage from './Error-message';
 
 class Fill extends React.Component{
-    constructor(props){
-        super(props);
-        this.onChangeHandler = this.onChangeHandler.bind(this);
-        this.state = {
-            name: '',
-            lastName: '',
-            job: ''
-        }
-    }
-    onChangeHandler = event =>{
-        this.setState({ 
-            name: event.target.value 
-        })
-        this.forceUpdate()
-        console.log(this.state.name)
-    }
+
+    onChangeHandler = event => {
+        this.props.onChangeHandler(event);
+      }
 
     render(){
         return (
             <section className="fill">
                 <ul>
                     <li className="FullName">
-                        <label htmlFor="FullName">Nombre completo<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
+                        <label htmlFor="fullName">Nombre completo<span>*</span></label>
+                        <input onChange={this.onChangeHandler} placeholder="Ej: Sally Hill" id="fullName" type="text" name="fullName" required/>
                     </li>
                     <li className="job">
                         <label htmlFor="job">Puesto<span>*</span></label>

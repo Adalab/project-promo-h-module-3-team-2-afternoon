@@ -12,17 +12,85 @@ class CardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          name: '',
+          palette: 1,
+          fullName: '',
           job: '',
           isAvatarDefault: true,
           profile: {
             avatar: defaultImage
-          }
+          },
+          phone: '',
+          email: '',
+          linkedin: '',
+          github: ''
+
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
+        this.resetHandler = this.resetHandler.bind(this);
       }
-      onChangeHandler(data, id){
+
+      resetHandler() {
+        this.setState({
+          palette: 1,
+          fullName: '',
+          job: '',
+          isAvatarDefault: true,
+          profile: {
+            avatar: defaultImage
+          },
+          phone: '',
+          email: '',
+          linkedin: '',
+          github: ''
+        });
+        console.log('hola')
+      }
+
+      onChangeHandler(event) {
+        const stateName = event.target.name;
+        const newValue = event.target.value;
+        this.setState({
+          [stateName]: newValue // `${stateName}`: newValue
+        });
+      }
+
+    updateAvatar(img) {
+        const {profile} = this.state;
+        this.setState(prevState => {
+          const newProfile = {...profile, avatar: img};
+          return {
+            profile: newProfile,
+            isAvatarDefault: false
+          }
+        });
+      }
+
+    render(data) {
+      const {profile, isAvatarDefault} = this.state;
+      return (
+        <div>
+            <Header />
+            <main className="main__card">
+                <CardPreview resetHandler={this.resetHandler} palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
+                <Profile avatar={profile.avatar} />
+                </CardPreview>
+                <Form onChangeHandler={this.onChangeHandler}>
+                <GetAvatar 
+                    avatar={profile.avatar} 
+                    isAvatarDefault={isAvatarDefault} 
+                    updateAvatar={this.updateAvatar} />
+                </Form>
+            </main>
+            <Footer />
+        </div>
+      );
+    }
+  }
+
+export default CardPage;
+
+        /*
         console.log(data)
         console.log(id)
         this.setState((prevState, props) => {
@@ -38,37 +106,5 @@ class CardPage extends React.Component {
           return { 
             name: newName, 
             job: newJob };
-        });
-      }
-    updateAvatar(img) {
-        const {profile} = this.state;
-        this.setState(prevState => {
-          const newProfile = {...profile, avatar: img};
-          return {
-            profile: newProfile,
-            isAvatarDefault: false
-          }
-        });
-      }
-    render(data) {
-        const {profile, isAvatarDefault} = this.state;
-        return (
-            <div>
-                <Header />
-                <main className="main__card">
-                    <CardPreview name={this.state.name} job={this.state.job}>
-                        <Profile avatar={profile.avatar} />
-                    </CardPreview>
-                    <Form onChangeHandler={this.onChangeHandler}>
-                    <GetAvatar 
-                        avatar={profile.avatar} 
-                        isAvatarDefault={isAvatarDefault} 
-                        updateAvatar={this.updateAvatar} />
-                    </Form>
-                </main>
-                <Footer />
-            </div>
-        );
-      }
-    }
-export default CardPage;
+        });*/
+      
