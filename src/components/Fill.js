@@ -5,15 +5,13 @@ class Fill extends React.Component{
     constructor(props){
         super(props);
         this.onChangeHandler = this.onChangeHandler.bind(this);
-        //this.onChangeHandler2 = this.onChangeHandler2.bind(this);
         this.state = {
             name: '',
-            //lastName: '',
+            lastName: '',
             job: ''
         }
     }
     onChangeHandler = event =>{
-        this.props.onChangeHandler(event.target.value, event.target.id)
         this.setState({ 
             name: event.target.value 
         })
@@ -21,11 +19,6 @@ class Fill extends React.Component{
         console.log(this.state.name)
     }
 
-    /*onChangeHandler2 = event =>{
-
-        this.props.onChangeHandler2(event.target.value, event.target.id)
-    }*/
-    
     render(){
         return (
             <section className="fill">
@@ -68,7 +61,6 @@ class Fill extends React.Component{
         )
     }
 }
-
 export default Fill;
 
 {/*             <div className="form-top" id="form-top-fill">

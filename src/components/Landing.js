@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import landingImage from "./../images/download.svg";
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 class Landing extends Component {
   render() {
@@ -26,6 +27,7 @@ class Landing extends Component {
           <div className="main__link"> <Link className="main__link--a" to="/cardpage">Comenzar</Link>
           </div>
         </main>
+        <Footer />
       </div>
     );
   }
