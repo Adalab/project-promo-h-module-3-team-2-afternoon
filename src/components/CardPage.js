@@ -27,6 +27,24 @@ class CardPage extends React.Component {
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.updateAvatar = this.updateAvatar.bind(this);
+        this.resetHandler = this.resetHandler.bind(this);
+      }
+
+      resetHandler() {
+        this.setState({
+          palette: 1,
+          fullName: '',
+          job: '',
+          isAvatarDefault: true,
+          profile: {
+            avatar: defaultImage
+          },
+          phone: '',
+          email: '',
+          linkedin: '',
+          github: ''
+        });
+        console.log('hola')
       }
 
       onChangeHandler(event) {
@@ -54,7 +72,7 @@ class CardPage extends React.Component {
         <div>
             <Header />
             <main className="main__card">
-                <CardPreview palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
+                <CardPreview resetHandler={this.resetHandler} palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
                 <Form onChangeHandler={this.onChangeHandler}>

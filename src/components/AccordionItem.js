@@ -11,13 +11,13 @@ class AccordionItem extends React.Component {
 
   toggleHandler = () => {
     const name = this.props.name;
-    const onExpande = this.props.onExpande;
+    const onExpande = this.props.handleOpenAccordion;
 
     onExpande(name);
   }
 
   render() {
-    const open = this.props.name === this.props.openName;
+    const open = this.props.name === this.props.openName; //devuelve valor true o false
     const contentClass = 'form-bottom' + (open ? ' form-bottom-open' : '');
     const iconClass = 'form-arrow' + (open ? ' form-arrow-rotate' : '');
 

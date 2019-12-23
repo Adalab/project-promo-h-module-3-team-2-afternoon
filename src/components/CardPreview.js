@@ -4,19 +4,7 @@ import Buttons from "./Buttons";
 import PropTypes from 'prop-types';
 
 class CardPreview extends React.Component {
-    //constructor(props) {
-        //super(props);
-       // this.resetHandler = this.resetHandler.bind(this);
-      //}
 
-      /*resetHandler (props) {
-        this.props.fullName = "Nombre Apellido",
-        this.props.job = "Front-end Developer",
-        this.props.linkedin = '',
-        this.props.github = '',
-        this.props.email = '', 
-        this.props.phone = ''
-    }*/
     render() {
 
         const paletteClasses = {
