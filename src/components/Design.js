@@ -9,7 +9,7 @@ render(){
             <p>Colores</p>
             <ul>
                 <li className="select-palette palette-1">
-                    <Palette onChangeHandler={this.props.onChangeHandler} inputValue="1"/>
+                    <Palette onChangeHandler={this.props.onChangeHandler} inputValue="1" checked="checked"/>
                </li>
                 <li className="select-palette palette-2">
                     <Palette onChangeHandler={this.props.onChangeHandler} inputValue="2"/>
