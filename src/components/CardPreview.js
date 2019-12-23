@@ -1,28 +1,33 @@
 import React from "react";
-import profilePic from "../images/--profile-picture.gif"
 import PreviewIcons from "./PreviewIcons";
 import Buttons from "./Buttons";
 import PropTypes from 'prop-types';
 
-
 class CardPreview extends React.Component {
-    
+
     render() {
+
+        const paletteClasses = {
+            1: 'select-palette1',
+            2: 'select-palette2',
+            3: 'select-palette3'
+        };
+        const palette = this.props.palette === '' ? "1" : this.props.palette;
+        const cardClass = `card ${paletteClasses[palette]}`;
+
         return (
             <section className="preview">
                 <div className="preview__wrapper">
-                <Buttons btnClass='btn-reset' text=' reset'>
+                <Buttons onClick={this.resetHandler} btnClass='btn-reset' text=' reset'>
                     <i className="far fa-trash-alt"></i>
                 </Buttons>
-                    <div className="card select-palette1" id="cardId">
+                    <div className={cardClass} id="cardId">
                         <div className="card__id">
-                            <h3 id="cardName" className="card__id--name">{this.props.name === '' ? "Nombre Apellido" : this.props.name}</h3>
+                            <h3 id="cardName" className="card__id--name">{this.props.fullName === '' ? "Nombre Apellido" : this.props.fullName}</h3>
                             <p id="cardJob" className="card__id--role">{this.props.job === '' ? "Front-end Developer" : this.props.job}</p>
                         </div>
-                        <div className="card__photo js__profile-image">
-                            <img src={profilePic} alt="profileName" className="card__photo" />
-                        </div>
-                        <PreviewIcons iconsList={this.props.iconsList} />
+                        {this.props.children}
+                        <PreviewIcons linkedin={this.props.linkedin} github={this.props.github} email={this.props.email} phone={this.props.phone} />
                     </div>
                 </div>
             </section>

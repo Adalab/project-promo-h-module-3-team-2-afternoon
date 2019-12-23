@@ -1,73 +1,47 @@
 import React from 'react';
 import ErrorMessage from './Error-message';
-import Buttons from "./Buttons";
-
 
 class Fill extends React.Component{
-    constructor(props){
-        super(props)
-        this.onChangeHandler = this.onChangeHandler.bind(this);
-        //this.onChangeHandler2 = this.onChangeHandler2.bind(this);
-        this.state = {
-            name: '',
-            //lastName: '',
-            job: ''
-        }
-    }
-    onChangeHandler = event =>{
-        this.props.onChangeHandler(event.target.value, event.target.id)
-        this.setState({ 
-            name: event.target.value 
-        })
-        this.forceUpdate()
-        console.log(this.state.name)
-    }
 
-    /*onChangeHandler2 = event =>{
+    onChangeHandler = event => {
+        this.props.onChangeHandler(event);
+      }
 
-        this.props.onChangeHandler2(event.target.value, event.target.id)
-    }*/
-    
     render(){
         return (
             <section className="fill">
                 <ul>
                     <li className="FullName">
-                        <label htmlFor="FullName">Nombre completo<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="Ej: Sally Hill" id="fullName" type="text" name="FullName" required/>
+                        <label htmlFor="fullName">Nombre completo<span>*</span></label>
+                        <input onChange={this.onChangeHandler} value={this.props.userName} placeholder="Ej: Sally Hill" id="fullName" type="text" name="fullName" required/>
                     </li>
                     <li className="job">
                         <label htmlFor="job">Puesto<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="Ej: Front-End unicorn" id="job" type="text" name="job" required/>
+                        <input onChange={this.onChangeHandler} value={this.props.userJob} placeholder="Ej: Front-End unicorn" id="job" type="text" name="job" required/>
                     </li>
                     <li className="profile-picture">
                         <label htmlFor="image"> Imagen de perfil<span>*</span></label>
-                        <input id="image-input" type="file" name="image" className="hidden js__profile-upload-btn"
-                        required/>
-                        <div className="profile-picture__upload">
-                        <Buttons btnClass='btn-upload js__profile-trigger' text='Añadir imagen'></Buttons>
-                            <div className="thumbnail js__profile-preview"></div>
-                        </div>
+                        {this.props.children}
                         <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
                     </li>
                     <li className="email">
                         <label htmlFor="email">Email<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" required/>
+                        <input onChange={this.onChangeHandler} value={this.props.userEmail} placeholder="Ej: sally-hill@gmail.com" id="email" type="email" name="email" required/>
                         <ErrorMessage id="error-email" errorText = 'Introduce un email válido.'/>
                     </li>
                     <li className="tel">
                         <label htmlFor="phone">Teléfono</label>
-                        <input onChange={this.onChangeHandler} placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone" required/>
+                        <input onChange={this.onChangeHandler} value={this.props.userPhone} placeholder="Ej: 555-55-55-55" id="phone" type="tel" name="phone" required/>
                         <ErrorMessage id="error-phone" errorText = 'Introduce un teléfono válido.'/>
                     </li>
                     <li className="linkedin">
                         <label htmlFor="linkedin">Linkedin<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="sally-hill" id="linkedin" type="text" name="linkedin" required/>
+                        <input onChange={this.onChangeHandler} value={this.props.userLinkedin} placeholder="sally-hill" id="linkedin" type="text" name="linkedin" required/>
                         <ErrorMessage id="error-linkedin" errorText = 'Introduce tu nombre de usuario de Linkedin sin @.'/>
                     </li>
                     <li className="github">
                         <label htmlFor="github">Github<span>*</span></label>
-                        <input onChange={this.onChangeHandler} placeholder="sally-hill" id="github" type="text" name="github" required/>
+                        <input onChange={this.onChangeHandler} value={this.props.userGithub} placeholder="sally-hill" id="github" type="text" name="github" required/>
                         <ErrorMessage id="error-github" errorText = 'Introduce tu nombre de usuario de Github sin @.'/>
                     </li>
                 </ul>
@@ -75,11 +49,10 @@ class Fill extends React.Component{
         )
     }
 }
-
 export default Fill;
 
-/*             <div className="form-top" id="form-top-fill">
+{/*             <div className="form-top" id="form-top-fill">
                     <h2><i className="far fa-keyboard"></i> Rellena</h2>
                     <div className="form-arrow arrow-down" id="arrow-fill"><i className="fas fa-chevron-down"></i></div>
-                </div>*/
+                </div>*/}
                 
