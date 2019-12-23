@@ -11,9 +11,9 @@ class AccordionItem extends React.Component {
 
   toggleHandler = () => {
     const name = this.props.name;
-    const onExpande = this.props.handleOpenAccordion;
+    const handleOpenAccordion = this.props.handleOpenAccordion;
 
-    onExpande(name);
+    handleOpenAccordion(name);
   }
 
   render() {
