@@ -25,14 +25,16 @@ class Form extends React.Component {
       });
     }
   }
-
+  onSubmitHandler = event => {
+    this.onSubmitHandler(event)
+  }
   render() {
     const accordionOpen = this.state.accordionOpen;
 
     return (
       <section className="forms">
         <div className="section-wrapper">
-          <form action="" method="POST" id="card__form">
+          <form action="" method="POST" id="card__form" onSubmit={this.onSubmitHandler}>
             <Accordion>
               <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
                 <Design onChangeHandler={this.props.onChangeHandler}/>

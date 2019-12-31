@@ -26,6 +26,7 @@ class CardPage extends React.Component {
 
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
+        this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
         this.resetHandler = this.resetHandler.bind(this);
       }
@@ -54,7 +55,9 @@ class CardPage extends React.Component {
           [stateName]: newValue // `${stateName}`: newValue
         });
       }
-
+      onSubmitHandler (event) {
+        event.preventDefault()
+      }
     updateAvatar(img) {
         const {profile} = this.state;
         this.setState(prevState => {
@@ -66,7 +69,7 @@ class CardPage extends React.Component {
         });
       }
 
-    render(data) {
+    render() {
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
@@ -75,7 +78,10 @@ class CardPage extends React.Component {
                 <CardPreview resetHandler={this.resetHandler} palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
-                <Form onChangeHandler={this.onChangeHandler}>
+                <Form 
+                onChangeHandler={this.onChangeHandler}
+                onSubmitHandler={this.onSubmitHandler}
+                >
                 <GetAvatar 
                     avatar={profile.avatar} 
                     isAvatarDefault={isAvatarDefault} 

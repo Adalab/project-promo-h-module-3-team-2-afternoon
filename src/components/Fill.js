@@ -50,9 +50,4 @@ class Fill extends React.Component{
     }
 }
 export default Fill;
-
-{/*             <div className="form-top" id="form-top-fill">
-                    <h2><i className="far fa-keyboard"></i> Rellena</h2>
-                    <div className="form-arrow arrow-down" id="arrow-fill"><i className="fas fa-chevron-down"></i></div>
-                </div>*/}
                 
