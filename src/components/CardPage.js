@@ -22,8 +22,9 @@ class CardPage extends React.Component {
           phone: '',
           email: '',
           linkedin: '',
-          github: ''
-
+          github: '',
+          emailError: '',
+          phoneError: ''
         };
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
@@ -53,11 +54,44 @@ class CardPage extends React.Component {
         const newValue = event.target.value;
         this.setState({
           [stateName]: newValue // `${stateName}`: newValue
-        });
+        },
+        this.validationHandler
+        );
         //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
         event.preventDefault()
+        this.validationHandler()
+      }
+      validationHandler = () => {        
+         this.validationEmail()
+         this.validationPhone() 
+      }
+      validationEmail = () =>{
+        if (this.state.email==='' || !this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+          this.setState({
+            emailError: 'Introduce un email válido.'
+          })
+          return false
+        } else {
+          this.setState({
+            emailError: ''
+          })
+          return true
+        }
+      }
+      validationPhone = () => {
+        if (!this.state.phone.match(/^[0-9]{9}/)){
+          this.setState({
+            phoneError: 'Introduce un teléfono válido.'
+          })
+          return false
+        } else {
+          this.setState({
+            phoneError: ''
+          })
+          return true
+        }
       }
     updateAvatar(img) {
         const {profile} = this.state;
@@ -80,18 +114,20 @@ class CardPage extends React.Component {
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
                 <Form 
-                fullName = {this.state.fullName}
-                job = {this.state.job}
-                email = {this.state.email}
-                phone = {this.state.phone}
-                linkedin = {this.state.linkedin}
-                github = {this.state.github}
-                onChangeHandler={this.onChangeHandler}
-                onSubmitHandler={this.onSubmitHandler}>
+                  fullName = {this.state.fullName}
+                  job = {this.state.job}
+                  email = {this.state.email}
+                  phone = {this.state.phone}
+                  linkedin = {this.state.linkedin}
+                  github = {this.state.github}
+                  emailError = {this.state.emailError}
+                  phoneError = {this.state.phoneError}
+                  onChangeHandler={this.onChangeHandler}
+                  onSubmitHandler={this.onSubmitHandler}>
                 <GetAvatar 
-                    avatar={profile.avatar} 
-                    isAvatarDefault={isAvatarDefault} 
-                    updateAvatar={this.updateAvatar} />
+                  avatar={profile.avatar} 
+                  isAvatarDefault={isAvatarDefault} 
+                  updateAvatar={this.updateAvatar} />
                 </Form>
             </main>
             <Footer />

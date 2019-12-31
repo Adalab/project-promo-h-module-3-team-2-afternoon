@@ -47,6 +47,8 @@ class Form extends React.Component {
                 phone = {this.props.phone}
                 linkedin = {this.props.linkedin}
                 github = {this.props.github}
+                emailError = {this.props.emailError}
+                phoneError = {this.props.phoneError}
                 onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>
