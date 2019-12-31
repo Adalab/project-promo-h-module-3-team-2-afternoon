@@ -54,6 +54,7 @@ class CardPage extends React.Component {
         this.setState({
           [stateName]: newValue // `${stateName}`: newValue
         });
+        //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
         event.preventDefault()
@@ -79,9 +80,14 @@ class CardPage extends React.Component {
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
                 <Form 
+                fullName = {this.state.fullName}
+                job = {this.state.job}
+                email = {this.state.email}
+                phone = {this.state.phone}
+                linkedin = {this.state.linkedin}
+                github = {this.state.github}
                 onChangeHandler={this.onChangeHandler}
-                onSubmitHandler={this.onSubmitHandler}
-                >
+                onSubmitHandler={this.onSubmitHandler}>
                 <GetAvatar 
                     avatar={profile.avatar} 
                     isAvatarDefault={isAvatarDefault} 

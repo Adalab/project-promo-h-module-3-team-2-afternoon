@@ -40,7 +40,14 @@ class Form extends React.Component {
                 <Design onChangeHandler={this.props.onChangeHandler}/>
               </AccordionItem>
               <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
-                <Fill onChangeHandler = {this.props.onChangeHandler}>
+                <Fill 
+                fullName = {this.props.fullName}
+                job = {this.props.job}
+                email = {this.props.email}
+                phone = {this.props.phone}
+                linkedin = {this.props.linkedin}
+                github = {this.props.github}
+                onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>
               </AccordionItem>
