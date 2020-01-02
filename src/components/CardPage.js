@@ -34,7 +34,54 @@ class CardPage extends React.Component {
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
         this.resetHandler = this.resetHandler.bind(this);
+        this.setLocalStorage = this.setLocalStorage.bind(this);
       }
+
+        setLocalStorage = () => {
+          const { email, github, job, linkedin, fullName, phone } = this.state;
+          const palette = this.state.palette;
+          const photo = this.state.profile;
+          const userData = {
+            palette: palette,
+          fullName: fullName,
+          job: job,
+          //isAvatarDefault: isAvatarDefault,
+          profile: {
+            avatar: defaultImage
+          },
+          phone: phone,
+          email: email,
+          linkedin: linkedin,
+          github: github,
+          // emailError: emailError,
+          // phoneError: phoneError,
+          // buttonIsDisabled: buttonIsDisabled
+          };
+          localStorage.setItem('userData', JSON.stringify(userData));
+        };
+      
+        getInitialState() {
+          const localData = JSON.parse(localStorage.getItem('userData')) || {};
+          return {
+            palette: localData.palette || 1,
+            userInputs: {
+              name: localData.name || '',
+              job: localData.job || '',
+              phone: localData.phone || '',
+              email: localData.email || '',
+              linkedin: localData.linkedin || '',
+              github: localData.github || '',
+              emailError: localData.emailError || '',
+              phoneError: localData.phoneError || '',
+              buttonIsDisabled: localData.buttonIsDisabled || true,
+              isAvatarDefault: localData.isAvatarDefault || true,
+            },
+      
+            photo: localData.photo || defaultImage
+          };
+
+        }
+
 
       resetHandler() {
         this.setState({
@@ -55,6 +102,7 @@ class CardPage extends React.Component {
       onChangeHandler(event) {
         const stateName = event.target.name;
         const newValue = event.target.value;
+        this.setLocalStorage()
         this.setState({
           [stateName]: newValue // `${stateName}`: newValue
         }
@@ -118,6 +166,7 @@ class CardPage extends React.Component {
       }
 
     render() {
+      this.setLocalStorage()
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
