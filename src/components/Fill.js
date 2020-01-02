@@ -36,7 +36,7 @@ class Fill extends React.Component{
                     <li className="profile-picture">
                         <label htmlFor="image"> Imagen de perfil<span>*</span></label>
                         {this.props.children}
-                        <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
+                        <ErrorMessage className='hidden' id="error-image" errorText = 'Sube una imagen.'/>
                     </li>
                     <li className="email">
                         <label htmlFor="email">Email<span>*</span></label>

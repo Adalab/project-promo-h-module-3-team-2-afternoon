@@ -6,13 +6,17 @@ const Buttons = props => {
     const {
         btnClass,
         //action
-        text
+        text,
+        id,
+        disabled,
     } = props
 
     return (
         <button
             type="button"
             className={btnClass}
+            id={id}
+            disabled={disabled}
             // onClick={action}
         >
             {props.children}
