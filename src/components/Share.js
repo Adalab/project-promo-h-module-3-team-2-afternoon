@@ -8,7 +8,12 @@ class Share extends React.Component{
         return (
             <section className="share">
                 <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
-                <Buttons btnClass='btn-create  btn-create-inactive' text=' crear tarjeta'>
+                <Buttons 
+                btnClass='btn-create'
+                id='btn-create' 
+                text='crear tarjeta'
+                disabled = {this.props.buttonIsDisabled}
+                >
                     <i className="far fa-address-card"></i>
                 </Buttons>
                 <div className="card__share " id="card-share">
@@ -28,3 +33,4 @@ export default Share;
                         <i className="fas fa-chevron-down"></i>
                     </div>
                 </div>*/
+                //btn-create-inactive

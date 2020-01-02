@@ -26,6 +26,7 @@ class Form extends React.Component {
     }
   }
   onSubmitHandler = event => {
+    event.preventDefault();
     this.onSubmitHandler(event)
   }
   render() {
@@ -54,7 +55,9 @@ class Form extends React.Component {
                 </Fill>
               </AccordionItem>
               <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
-                <Share/>
+                <Share
+                buttonIsDisabled={this.props.buttonIsDisabled}
+                />
               </AccordionItem>
             </Accordion>
           </form>

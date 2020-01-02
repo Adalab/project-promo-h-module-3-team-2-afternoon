@@ -27,8 +27,12 @@ class CardPage extends React.Component {
           github: '',
         },
           emailError: '',
-          phoneError: ''
+          phoneError: '',
+          buttonIsDisabled: true
+
         };
+        console.log(this.state.buttonIsDisabled)
+
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
@@ -65,9 +69,8 @@ class CardPage extends React.Component {
           phone: '',
           email: '',
           linkedin: '',
-          github: ''
+          github: '',
         });
-        console.log('hola')
       }
 
       onChangeHandler(event) {
@@ -75,8 +78,7 @@ class CardPage extends React.Component {
         const newValue = event.target.value;
         this.setState({
           [stateName]: newValue // `${stateName}`: newValue
-        },
-        this.validationHandler
+        }
         );
         //console.log(this.state.fullName)
       }
@@ -85,8 +87,18 @@ class CardPage extends React.Component {
         this.validationHandler()
       }
       validationHandler = () => {        
-         this.validationEmail()
-         this.validationPhone() 
+         if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
+           this.setState({buttonIsDisabled: true})
+         } else {
+          this.setState({buttonIsDisabled: false})
+         }
+      }
+      validationTextInput = () => {
+        if (!this.state.fullName || !this.state.job || !this.state.linkedin || !this.state.github){
+          return false
+        } else {
+          return true
+        }
       }
       validationEmail = () =>{
         if (this.state.email==='' || !this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
@@ -144,7 +156,8 @@ class CardPage extends React.Component {
                   emailError = {this.state.emailError}
                   phoneError = {this.state.phoneError}
                   onChangeHandler={this.onChangeHandler}
-                  onSubmitHandler={this.onSubmitHandler}>
+                  onSubmitHandler={this.onSubmitHandler}
+                  buttonIsDisabled={this.state.buttonIsDisabled}>
                 <GetAvatar 
                   avatar={profile.avatar} 
                   isAvatarDefault={isAvatarDefault} 
