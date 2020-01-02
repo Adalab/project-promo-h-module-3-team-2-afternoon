@@ -36,6 +36,9 @@
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.164);
     cursor: pointer;
     @include hoverButton();
+    &:disabled {
+        background-color: rgb(74, 77, 77)
+    }
 }
 
 .btn-create-inactive{
