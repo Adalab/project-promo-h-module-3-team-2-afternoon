@@ -59,14 +59,15 @@ class CardPage extends React.Component {
           [stateName]: newValue // `${stateName}`: newValue
         }
         );
-        //console.log(this.state.fullName)
+        this.validationHandler()
       }
       onSubmitHandler (event) {
         event.preventDefault()
-        this.validationHandler()
+        
       }
-      validationHandler = () => {        
-         if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
+      validationHandler = () => {  
+        console.log(this.state.buttonIsDisabled);
+         if (!this.state.fullName || !this.state.job || !this.state.linkedin || !this.state.github){
            this.setState({buttonIsDisabled: true})
          } else {
           this.setState({buttonIsDisabled: false})
