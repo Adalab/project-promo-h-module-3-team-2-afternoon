@@ -7,6 +7,7 @@ import CardPreview from './CardPreview';
 import GetAvatar from './GetAvatar';
 import Profile from './Profile';
 import defaultImage from './defaultImage';
+import { LocalFetch } from '../services/LocalFetch';
 
 class CardPage extends React.Component {
     constructor(props) {
@@ -32,6 +33,24 @@ class CardPage extends React.Component {
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
         this.resetHandler = this.resetHandler.bind(this);
+      }
+
+      componentDidMount() {
+        const itemData = JSON.parse(localStorage.getItem('saveData'));
+        if (itemData !== null) {
+          this.setState({
+            userInfo: itemData
+          });
+          // if (getItem.photo !== null) {
+          //   this.setState({
+          //     isAvatarDefault: true
+          //   });
+          // }
+        }
+      }
+
+      saveData(obj) {
+        localStorage.setItem('saveData', JSON.stringify(obj));
       }
 
       resetHandler() {
