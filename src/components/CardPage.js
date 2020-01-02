@@ -11,7 +11,8 @@ import defaultImage from './defaultImage';
 class CardPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
+          userInfo : {
           palette: 1,
           fullName: '',
           job: '',
@@ -23,6 +24,7 @@ class CardPage extends React.Component {
           email: '',
           linkedin: '',
           github: '',
+        },
           emailError: '',
           phoneError: ''
         };
