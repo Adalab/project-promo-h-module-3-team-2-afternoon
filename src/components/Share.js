@@ -4,15 +4,17 @@ import Buttons from "./Buttons";
 
 
 class Share extends React.Component{
+    
     render(){
         return (
             <section className="share">
                 <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
                 <Buttons 
                 btnClass='btn-create'
+                action = {this.props.onSubmitHandler}
                 id='btn-create' 
                 text='crear tarjeta'
-                disabled = {this.props.buttonIsDisabled}
+                disabled = {false} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
                 >
                     <i className="far fa-address-card"></i>
                 </Buttons>

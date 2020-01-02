@@ -5,7 +5,7 @@ const Buttons = props => {
 
     const {
         btnClass,
-        //action
+        action,
         text,
         id,
         disabled,
@@ -17,7 +17,7 @@ const Buttons = props => {
             className={btnClass}
             id={id}
             disabled={disabled}
-            // onClick={action}
+            onClick={action}
         >
             {props.children}
             {text}

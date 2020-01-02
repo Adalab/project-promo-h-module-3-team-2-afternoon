@@ -7,13 +7,12 @@ import CardPreview from './CardPreview';
 import GetAvatar from './GetAvatar';
 import Profile from './Profile';
 import defaultImage from './defaultImage';
-import { LocalFetch } from '../services/LocalFetch';
+//import { LocalFetch } from '../services/LocalFetch';
 
 class CardPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-          userInfo : {
           palette: 1,
           fullName: '',
           job: '',
@@ -25,7 +24,6 @@ class CardPage extends React.Component {
           email: '',
           linkedin: '',
           github: '',
-        },
           emailError: '',
           phoneError: '',
           buttonIsDisabled: true
@@ -37,24 +35,27 @@ class CardPage extends React.Component {
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
         this.resetHandler = this.resetHandler.bind(this);
+        this.saveData = this.saveData.bind(this);
       }
 
-      componentDidMount() {
-        const itemData = JSON.parse(localStorage.getItem('saveData'));
-        if (itemData !== null) {
-          this.setState({
-            userInfo: itemData
-          });
-          // if (getItem.photo !== null) {
-          //   this.setState({
-          //     isAvatarDefault: true
-          //   });
-          // }
-        }
-      }
+      // componentDidMount() {
+      //   const itemData = JSON.parse(localStorage.getItem('saveData'));
+      //   if (itemData !== null) {
+      //     this.setState({
+      //       userInfo: itemData
+      //     });
+      //     // if (getItem.photo !== null) {
+      //     //   this.setState({
+      //     //     isAvatarDefault: true
+      //     //   });
+      //     // }
+      //   }
+      // }
 
-      saveData(obj) {
-        localStorage.setItem('saveData', JSON.stringify(obj));
+      saveData() {
+        localStorage.setItem('fullName', JSON.stringify(this.state.fullName));
+        localStorage.setItem('job', JSON.stringify(this.state.job));
+        localStorage.setItem('palette', JSON.stringify(this.state.palette));
       }
 
       resetHandler() {
@@ -83,8 +84,10 @@ class CardPage extends React.Component {
         //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
+        console.log('holi')
         event.preventDefault()
         this.validationHandler()
+        this.saveData()
       }
       validationHandler = () => {        
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
