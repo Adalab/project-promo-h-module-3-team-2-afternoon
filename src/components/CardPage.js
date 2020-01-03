@@ -144,6 +144,14 @@ class CardPage extends React.Component {
           linkedin: '',
           github: '',
         });
+        localStorage.removeItem('fullName');
+        localStorage.removeItem('job');
+        localStorage.removeItem('palette');
+        localStorage.removeItem('phone');
+        localStorage.removeItem('email');
+        localStorage.removeItem('linkedin');
+        localStorage.removeItem('github');
+        localStorage.removeItem('profile');
       }
 
       onChangeHandler(event) {
