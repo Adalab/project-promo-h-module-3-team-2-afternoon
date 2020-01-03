@@ -148,7 +148,6 @@ class CardPage extends React.Component {
         localStorage.removeItem('linkedin');
         localStorage.removeItem('github');
         localStorage.removeItem('profile');
-        //localStorage.removeItem('userData');
       }
 
       onChangeHandler(event) {
