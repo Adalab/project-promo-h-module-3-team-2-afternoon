@@ -1,6 +1,7 @@
 import React from 'react';
 
 const TYPES_PREFIXES = {
+  phone:'tel:',
   email:'mailto:',
   linkedin:'https://linkedin.com/in/',
   github: 'https://github.com/'
