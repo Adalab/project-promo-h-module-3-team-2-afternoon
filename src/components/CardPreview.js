@@ -18,9 +18,12 @@ class CardPreview extends React.Component {
         return (
             <section className="preview">
                 <div className="preview__wrapper">
-                <Buttons onClick={this.resetHandler} btnClass='btn-reset' text=' reset'>
-                    <i className="far fa-trash-alt"></i>
-                </Buttons>
+                    <Buttons 
+                        action = {this.props.resetHandler}
+                        btnClass='btn-reset' 
+                        text=' reset'>
+                        <i className="far fa-trash-alt"></i>
+                    </Buttons>
                     <div className={cardClass} id="cardId">
                         <div className="card__id">
                             <h3 id="cardName" className="card__id--name">{this.props.fullName === '' ? "Nombre Apellido" : this.props.fullName}</h3>

@@ -4,11 +4,18 @@ import Buttons from "./Buttons";
 
 
 class Share extends React.Component{
+    
     render(){
         return (
             <section className="share">
                 <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
-                <Buttons btnClass='btn-create  btn-create-inactive' text=' crear tarjeta'>
+                <Buttons 
+                btnClass='btn-create'
+                action = {this.props.onChangeHandler}
+                id='btn-create' 
+                text='crear tarjeta'
+                disabled = {false} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
+                >
                     <i className="far fa-address-card"></i>
                 </Buttons>
                 <div className="card__share " id="card-share">
@@ -28,3 +35,4 @@ export default Share;
                         <i className="fas fa-chevron-down"></i>
                     </div>
                 </div>*/
+                //btn-create-inactive

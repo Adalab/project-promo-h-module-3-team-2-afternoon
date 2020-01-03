@@ -36,7 +36,7 @@ class Fill extends React.Component{
                     <li className="profile-picture">
                         <label htmlFor="image"> Imagen de perfil<span>*</span></label>
                         {this.props.children}
-                        <ErrorMessage id="error-image" errorText = 'Sube una imagen.'/>
+                        <ErrorMessage className='hidden' id="error-image" errorText = 'Sube una imagen.'/>
                     </li>
                     <li className="email">
                         <label htmlFor="email">Email<span>*</span></label>
@@ -48,7 +48,7 @@ class Fill extends React.Component{
                         name="email" 
                         value = {this.props.email}
                         required/>
-                        <ErrorMessage id="error-email" errorText = 'Introduce un email válido.'/>
+                        <ErrorMessage id="error-email" errorText = {this.props.emailError}/>
                     </li>
                     <li className="tel">
                         <label htmlFor="phone">Teléfono</label>
@@ -60,7 +60,7 @@ class Fill extends React.Component{
                         name="phone" 
                         value = {this.props.phone}
                         required/>
-                        <ErrorMessage id="error-phone" errorText = 'Introduce un teléfono válido.'/>
+                        <ErrorMessage id="error-phone" errorText = {this.props.phoneError}/>
                     </li>
                     <li className="linkedin">
                         <label htmlFor="linkedin">Linkedin<span>*</span></label>

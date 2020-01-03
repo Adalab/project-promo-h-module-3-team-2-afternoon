@@ -25,9 +25,7 @@ class Form extends React.Component {
       });
     }
   }
-  onSubmitHandler = event => {
-    this.onSubmitHandler(event)
-  }
+  
   render() {
     const accordionOpen = this.state.accordionOpen;
 
@@ -47,12 +45,17 @@ class Form extends React.Component {
                 phone = {this.props.phone}
                 linkedin = {this.props.linkedin}
                 github = {this.props.github}
+                emailError = {this.props.emailError}
+                phoneError = {this.props.phoneError}
                 onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>
               </AccordionItem>
               <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
-                <Share/>
+                <Share
+                onChangeHandler={this.props.onChangeHandler}
+                buttonIsDisabled={this.props.buttonIsDisabled}
+                />
               </AccordionItem>
             </Accordion>
           </form>
