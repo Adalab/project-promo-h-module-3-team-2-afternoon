@@ -53,9 +53,13 @@ class CardPage extends React.Component {
       // }
 
       saveData() {
+        localStorage.setItem('palette', JSON.stringify(this.state.palette));
         localStorage.setItem('fullName', JSON.stringify(this.state.fullName));
         localStorage.setItem('job', JSON.stringify(this.state.job));
-        localStorage.setItem('palette', JSON.stringify(this.state.palette));
+        localStorage.setItem('phone', JSON.stringify(this.state.phone));
+        localStorage.setItem('email', JSON.stringify(this.state.email));
+        localStorage.setItem('linkedin', JSON.stringify(this.state.linkedin));
+        localStorage.setItem('github', JSON.stringify(this.state.github));
       }
 
       resetHandler() {
