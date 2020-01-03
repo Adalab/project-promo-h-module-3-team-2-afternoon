@@ -18,7 +18,8 @@ class CardPage extends React.Component {
           job: '',
           isAvatarDefault: true,
           profile: {
-            avatar: defaultImage},
+            avatar: defaultImage
+          },
           phone: '',
           email: '',
           linkedin: '',
@@ -26,17 +27,6 @@ class CardPage extends React.Component {
           emailError: '',
           phoneError: '',
           buttonIsDisabled: true,
-          // userData: {
-          //   palette: '',
-          //   fullName: '',
-          //   job: '',
-          //   photo: '',
-          //   phone: '',
-          //   email: '',
-          //   linkedin: '',
-          //   github: ''
-          // }
-
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -45,16 +35,15 @@ class CardPage extends React.Component {
         this.updateAvatar = this.updateAvatar.bind(this);
         this.resetHandler = this.resetHandler.bind(this);
         this.saveData = this.saveData.bind(this);
+        this.createObject = this.createObject.bind(this)
+        //this.getData = this.getData.bind(this);
       }
 
-      // componentDidMount(){
-      //   this.getData();
-      // }
+      
 
      
       componentDidMount(){
-      //getData() {
-        //const itemData = JSON.parse(localStorage.getItem('userData'));
+        
         const itemPalette = JSON.parse(localStorage.getItem('palette'));
         const itemName = JSON.parse(localStorage.getItem('fullName'));
         const itemJob = JSON.parse(localStorage.getItem('job'));
@@ -64,12 +53,7 @@ class CardPage extends React.Component {
         const itemGithub = JSON.parse(localStorage.getItem('github'));
         const itemProfile = JSON.parse(localStorage.getItem('profile'));
 
-        // if (itemData !== null) {
-        //   this.setState({
-        //     userData: itemData,
-        //     isAvatarDefault: itemData.photo ? false : true
-        //   });
-        // }
+  
         if (itemName !== null) {
           this.setState({
             fullName: itemName,
@@ -115,11 +99,10 @@ class CardPage extends React.Component {
           //     isAvatarDefault: true
           //   });
           // }
-        
+        console.log(this.state.fullName)
       }
-
+      
       saveData() {
-        //localStorage.setItem('userData', JSON.stringify(this.state.userData));
         localStorage.setItem('palette', JSON.stringify(this.state.palette));
         localStorage.setItem('fullName', JSON.stringify(this.state.fullName));
         localStorage.setItem('job', JSON.stringify(this.state.job));
@@ -128,8 +111,21 @@ class CardPage extends React.Component {
         localStorage.setItem('linkedin', JSON.stringify(this.state.linkedin));
         localStorage.setItem('github', JSON.stringify(this.state.github));
         localStorage.setItem('profile', JSON.stringify(this.state.profile));
+        this.createObject()
       }
-
+      createObject (){
+        const userData = {
+          palette: this.state.palette,
+          name: this.state.fullName,
+          job: this.state.job,
+          phone: this.state.phone,
+          email: this.state.email,
+          linkedin: this.state.linkedin,
+          github: this.state.github,
+          photo: this.state.profile
+        }
+        console.log (userData)
+      }
       resetHandler() {
         this.setState({
           palette: 1,
@@ -152,9 +148,11 @@ class CardPage extends React.Component {
         localStorage.removeItem('linkedin');
         localStorage.removeItem('github');
         localStorage.removeItem('profile');
+        //localStorage.removeItem('userData');
       }
 
       onChangeHandler(event) {
+        this.saveData()
         const stateName = event.target.name;
         const newValue = event.target.value;
         this.setState({
@@ -167,7 +165,7 @@ class CardPage extends React.Component {
         console.log('holi')
         event.preventDefault()
         this.validationHandler()
-        this.saveData()
+        
       }
       validationHandler = () => {
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
@@ -241,10 +239,10 @@ class CardPage extends React.Component {
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}>
-                <GetAvatar
+                  <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}
-                  updateAvatar={this.updateAvatar} />
+                  updateAvatar={this.updateAvatar} /> 
                 </Form>
             </main>
             <Footer />
