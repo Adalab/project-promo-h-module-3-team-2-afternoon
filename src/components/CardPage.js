@@ -12,7 +12,7 @@ import defaultImage from './defaultImage';
 class CardPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
           palette: 1,
           fullName: '',
           job: '',
@@ -38,19 +38,57 @@ class CardPage extends React.Component {
         this.saveData = this.saveData.bind(this);
       }
 
-      // componentDidMount() {
-      //   const itemData = JSON.parse(localStorage.getItem('saveData'));
-      //   if (itemData !== null) {
-      //     this.setState({
-      //       userInfo: itemData
-      //     });
-      //     // if (getItem.photo !== null) {
-      //     //   this.setState({
-      //     //     isAvatarDefault: true
-      //     //   });
-      //     // }
-      //   }
-      // }
+      componentDidMount() {
+        const itemName = JSON.parse(localStorage.getItem('fullName'));
+        const itemJob = JSON.parse(localStorage.getItem('job'));
+        const itemPalette = JSON.parse(localStorage.getItem('palette'));
+        const itemEmail = JSON.parse(localStorage.getItem('email'));
+        const itemPhone = JSON.parse(localStorage.getItem('phone'));
+        const itemLinkedin = JSON.parse(localStorage.getItem('linkedin'));
+        const itemGithub = JSON.parse(localStorage.getItem('github'));
+
+        if (itemName !== null) {
+          this.setState({
+            fullName: itemName,
+          });
+        }
+        if (itemJob !== null) {
+          this.setState({
+            job: itemJob,
+          })
+        }
+        if (itemPalette !== null) {
+          this.setState({
+            palette: itemPalette,
+          })
+        }
+        if (itemEmail !== null) {
+          this.setState({
+            email: itemEmail,
+          })
+        }
+        if (itemPhone !== null) {
+          this.setState({
+            phone: itemPhone,
+          })
+        }
+        if (itemLinkedin !== null) {
+          this.setState({
+            linkedin: itemLinkedin,
+          })
+        }
+        if (itemGithub !== null) {
+          this.setState({
+            github: itemGithub,
+          })
+        }
+          // if (getItem.photo !== null) {
+          //   this.setState({
+          //     isAvatarDefault: true
+          //   });
+          // }
+        
+      }
 
       saveData() {
         localStorage.setItem('palette', JSON.stringify(this.state.palette));
@@ -93,7 +131,7 @@ class CardPage extends React.Component {
         this.validationHandler()
         this.saveData()
       }
-      validationHandler = () => {        
+      validationHandler = () => {
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
            this.setState({buttonIsDisabled: true})
          } else {
@@ -153,7 +191,7 @@ class CardPage extends React.Component {
                 <CardPreview resetHandler={this.resetHandler} palette={this.state.palette} fullName={this.state.fullName} job={this.state.job} linkedin={this.state.linkedin} github={this.state.github} email={this.state.email} phone={this.state.phone} >
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
-                <Form 
+                <Form
                   fullName = {this.state.fullName}
                   job = {this.state.job}
                   email = {this.state.email}
@@ -165,9 +203,9 @@ class CardPage extends React.Component {
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}>
-                <GetAvatar 
-                  avatar={profile.avatar} 
-                  isAvatarDefault={isAvatarDefault} 
+                <GetAvatar
+                  avatar={profile.avatar}
+                  isAvatarDefault={isAvatarDefault}
                   updateAvatar={this.updateAvatar} />
                 </Form>
             </main>
@@ -192,8 +230,7 @@ export default CardPage;
           } else {
             console.log(`onChangeHandler(id=${id}) valor no está considerado`)
           }
-          return { 
-            name: newName, 
+          return {
+            name: newName,
             job: newJob };
         });*/
-      
