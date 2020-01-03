@@ -18,15 +18,24 @@ class CardPage extends React.Component {
           job: '',
           isAvatarDefault: true,
           profile: {
-            avatar: defaultImage
-          },
+            avatar: defaultImage},
           phone: '',
           email: '',
           linkedin: '',
           github: '',
           emailError: '',
           phoneError: '',
-          buttonIsDisabled: true
+          buttonIsDisabled: true,
+          // userData: {
+          //   palette: '',
+          //   fullName: '',
+          //   job: '',
+          //   photo: '',
+          //   phone: '',
+          //   email: '',
+          //   linkedin: '',
+          //   github: ''
+          // }
 
         };
         console.log(this.state.buttonIsDisabled)
@@ -38,19 +47,33 @@ class CardPage extends React.Component {
         this.saveData = this.saveData.bind(this);
       }
 
-      componentDidMount() {
+      // componentDidMount(){
+      //   this.getData();
+      // }
+
+     
+      componentDidMount(){
+      //getData() {
+        //const itemData = JSON.parse(localStorage.getItem('userData'));
+        const itemPalette = JSON.parse(localStorage.getItem('palette'));
         const itemName = JSON.parse(localStorage.getItem('fullName'));
         const itemJob = JSON.parse(localStorage.getItem('job'));
-        const itemPalette = JSON.parse(localStorage.getItem('palette'));
         const itemEmail = JSON.parse(localStorage.getItem('email'));
         const itemPhone = JSON.parse(localStorage.getItem('phone'));
         const itemLinkedin = JSON.parse(localStorage.getItem('linkedin'));
         const itemGithub = JSON.parse(localStorage.getItem('github'));
+        const itemProfile = JSON.parse(localStorage.getItem('profile'));
 
+        // if (itemData !== null) {
+        //   this.setState({
+        //     userData: itemData,
+        //     isAvatarDefault: itemData.photo ? false : true
+        //   });
+        // }
         if (itemName !== null) {
           this.setState({
             fullName: itemName,
-          });
+          })
         }
         if (itemJob !== null) {
           this.setState({
@@ -82,6 +105,11 @@ class CardPage extends React.Component {
             github: itemGithub,
           })
         }
+        if (itemProfile !== null) {
+          this.setState({
+            profile: itemProfile,
+          })
+        }
           // if (getItem.photo !== null) {
           //   this.setState({
           //     isAvatarDefault: true
@@ -91,6 +119,7 @@ class CardPage extends React.Component {
       }
 
       saveData() {
+        //localStorage.setItem('userData', JSON.stringify(this.state.userData));
         localStorage.setItem('palette', JSON.stringify(this.state.palette));
         localStorage.setItem('fullName', JSON.stringify(this.state.fullName));
         localStorage.setItem('job', JSON.stringify(this.state.job));
@@ -98,6 +127,7 @@ class CardPage extends React.Component {
         localStorage.setItem('email', JSON.stringify(this.state.email));
         localStorage.setItem('linkedin', JSON.stringify(this.state.linkedin));
         localStorage.setItem('github', JSON.stringify(this.state.github));
+        localStorage.setItem('profile', JSON.stringify(this.state.profile));
       }
 
       resetHandler() {
