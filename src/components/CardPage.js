@@ -159,7 +159,7 @@ class CardPage extends React.Component {
           [stateName]: newValue // `${stateName}`: newValue
         }
         );
-        this.validationHandler()
+        this.validationHandler(event)
         //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
@@ -167,13 +167,23 @@ class CardPage extends React.Component {
         this.validationHandler()
         
       }
-      validationHandler = () => {
+      validationHandler = (event) => {
+        if (event.target.name==='email'){
+          this.validationEmail();
+        } else if (event.target.name==='phone'){
+          this.validationPhone();
+        } else {
+          this.validationTextInput();
+        }
         console.log(this.state.buttonIsDisabled);
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
            this.setState({buttonIsDisabled: true})
          } else {
           this.setState({buttonIsDisabled: false})
          }
+         //console.log(this.validationEmail())
+         //console.log(this.validationPhone())
+         //console.log(this.validationTextInput())
       }
       validationTextInput = () => {
         if (!this.state.fullName || !this.state.job || !this.state.linkedin || !this.state.github){

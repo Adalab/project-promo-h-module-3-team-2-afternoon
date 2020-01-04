@@ -14,7 +14,8 @@ class Fill extends React.Component{
                     <li className="FullName">
                         <label htmlFor="fullName">Nombre completo<span>*</span></label>
                         <input 
-                        onChange={this.onChangeHandler} 
+                        onChange={this.onChangeHandler}
+                        onKeyUp={this.onChangeHandler}
                         placeholder="Ej: Sally Hill" 
                         id="fullName" 
                         type="text" 
@@ -25,7 +26,8 @@ class Fill extends React.Component{
                     <li className="job">
                         <label htmlFor="job">Puesto<span>*</span></label>
                         <input 
-                        onChange={this.onChangeHandler} 
+                        onChange={this.onChangeHandler}
+                        onKeyUp={this.onChangeHandler} 
                         placeholder="Ej: Front-End unicorn" 
                         id="job" 
                         type="text" 
@@ -42,6 +44,7 @@ class Fill extends React.Component{
                         <label htmlFor="email">Email<span>*</span></label>
                         <input 
                         onChange={this.onChangeHandler} 
+                        onKeyUp={this.onChangeHandler}
                         placeholder="Ej: sally-hill@gmail.com" 
                         id="email" 
                         type="email" 
@@ -54,6 +57,7 @@ class Fill extends React.Component{
                         <label htmlFor="phone">Teléfono</label>
                         <input 
                         onChange={this.onChangeHandler} 
+                        onKeyUp={this.onChangeHandler}
                         placeholder="Ej: 754765873" 
                         id="phone" 
                         type="tel" 
@@ -65,7 +69,8 @@ class Fill extends React.Component{
                     <li className="linkedin">
                         <label htmlFor="linkedin">Linkedin<span>*</span></label>
                         <input 
-                        onChange={this.onChangeHandler} 
+                        onChange={this.onChangeHandler}
+                        onKeyUp={this.onChangeHandler}
                         placeholder="sally-hill" 
                         id="linkedin" 
                         type="text" 
@@ -78,6 +83,7 @@ class Fill extends React.Component{
                         <label htmlFor="github">Github<span>*</span></label>
                         <input 
                         onChange={this.onChangeHandler} 
+                        onKeyUp={this.onChangeHandler}
                         placeholder="sally-hill" 
                         id="github" 
                         type="text" 
