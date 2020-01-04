@@ -14,7 +14,7 @@ class Share extends React.Component{
                 action = {this.props.onChangeHandler}
                 id='btn-create' 
                 text='crear tarjeta'
-                disabled = {false} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
+                disabled = {this.props.buttonIsDisabled} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
                 >
                     <i className="far fa-address-card"></i>
                 </Buttons>
