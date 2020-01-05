@@ -28,6 +28,8 @@ class CardPage extends React.Component {
           emailError: '',
           phoneError: '',
           buttonIsDisabled: true,
+          accordionOpen: ''
+
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -228,8 +230,23 @@ class CardPage extends React.Component {
           }
         });
       }
+      handleOpenAccordion = name => {
+        if (this.state.accordionOpen === name) {
+          this.setState({
+            accordionOpen: ''
+          });
+        } else {
+          this.setState({
+            accordionOpen: name
+          });
+        }
+        this.validationEmail()
+        this.validationTextInput()
+        this.validationPhone()
 
+      }
     render() {
+      const accordionOpen = this.state.accordionOpen;
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
@@ -249,7 +266,10 @@ class CardPage extends React.Component {
                   phoneError = {this.state.phoneError}
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
-                  buttonIsDisabled={this.state.buttonIsDisabled}>
+                  buttonIsDisabled={this.state.buttonIsDisabled}
+                  handleOpenAccordion={this.handleOpenAccordion} 
+                  openName={accordionOpen}>
+                  >
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}
