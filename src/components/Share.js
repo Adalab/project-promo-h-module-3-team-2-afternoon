@@ -8,7 +8,7 @@ class Share extends React.Component{
     render(){
         return (
             <section className="share">
-                <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
+                <ErrorMessage id="error-name-job" errorMessage = {this.props.errorMessage}/>
                 <Buttons 
                 btnClass='btn-create'
                 action = {this.props.onChangeHandler}

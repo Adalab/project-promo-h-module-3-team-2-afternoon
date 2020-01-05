@@ -27,6 +27,7 @@ class CardPage extends React.Component {
           github: '',
           emailError: '',
           phoneError: '',
+          errorMessage: '',
           buttonIsDisabled: true,
           accordionOpen: ''
 
@@ -180,8 +181,10 @@ class CardPage extends React.Component {
         console.log(this.state.buttonIsDisabled);
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
            this.setState({buttonIsDisabled: true})
+           return false
          } else {
           this.setState({buttonIsDisabled: false})
+          return true
          }
          //console.log(this.validationEmail())
          //console.log(this.validationPhone())
@@ -240,9 +243,17 @@ class CardPage extends React.Component {
             accordionOpen: name
           });
         }
-        this.validationEmail()
-        this.validationTextInput()
-        this.validationPhone()
+        if (name==='share'){
+          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
+            this.setState({
+              errorMessage: 'Por favor, revisa los campos marcados en rojo.'
+            })
+          } else {
+            this.setState({
+              errorMessage: ''
+            })
+          }
+        }
 
       }
     render() {
@@ -268,7 +279,8 @@ class CardPage extends React.Component {
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}
                   handleOpenAccordion={this.handleOpenAccordion} 
-                  openName={accordionOpen}>
+                  openName={accordionOpen}
+                  errorMessage = {this.state.errorMessage}
                   >
                   <GetAvatar
                   avatar={profile.avatar}

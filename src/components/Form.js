@@ -35,6 +35,7 @@ class Form extends React.Component {
                 <Share
                 onChangeHandler={this.props.onChangeHandler}
                 buttonIsDisabled={this.props.buttonIsDisabled}
+                errorMessage = {this.props.errorMessage}
                 />
               </AccordionItem>
             </Accordion>
