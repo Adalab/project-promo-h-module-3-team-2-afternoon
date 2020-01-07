@@ -1,7 +1,13 @@
 import React from 'react';
 
 class AccordionItem extends React.Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false
+    }
+    };
   toggleHandler = () => {
     const name = this.props.name;
     const handleOpenAccordion = this.props.handleOpenAccordion;

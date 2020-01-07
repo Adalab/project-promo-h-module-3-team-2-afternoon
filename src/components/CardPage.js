@@ -292,31 +292,9 @@ class CardPage extends React.Component {
           }
         });
       }
-      handleOpenAccordion = name => {
-        if (this.state.accordionOpen === name) {
-          this.setState({
-            accordionOpen: ''
-          });
-        } else {
-          this.setState({
-            accordionOpen: name
-          });
-        }
-        {/*if (name==='share'){
-          if (!this.validationName() || !this.validationEmail() || !this.validationPhone()){
-            this.setState({
-              errorMessage: 'Por favor, revisa los campos marcados en rojo.'
-            })
-          } else {
-            this.setState({
-              errorMessage: ''
-            })
-          }
-        }*/}
-
-      }
+     
     render() {
-      const accordionOpen = this.state.accordionOpen;
+    
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
@@ -341,8 +319,6 @@ class CardPage extends React.Component {
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}
-                  handleOpenAccordion={this.handleOpenAccordion} 
-                  openName={accordionOpen}
                   errorMessage = {this.state.errorMessage}
                   >
                   <GetAvatar
