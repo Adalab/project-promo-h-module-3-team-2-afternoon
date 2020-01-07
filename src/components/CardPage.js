@@ -25,8 +25,12 @@ class CardPage extends React.Component {
           email: '',
           linkedin: '',
           github: '',
+          nameError: '',
+          jobError: '',
           emailError: '',
           phoneError: '',
+          linkedinError: '',
+          githubError: '',
           errorMessage: '',
           buttonIsDisabled: true,
           accordionOpen: ''
@@ -170,30 +174,59 @@ class CardPage extends React.Component {
         this.validationHandler()
         
       }
-      validationHandler = (event) => {
-        if (event.target.name==='email'){
+      validationHandler = event => {
+        if (event.target.name==='fullName'){
+          this.validationName();
+        } else if (event.target.name==='job'){
+          this.validationJob();
+        } else if (event.target.name==='email'){
           this.validationEmail();
         } else if (event.target.name==='phone'){
           this.validationPhone();
-        } else {
-          this.validationTextInput();
+        } else if (event.target.name==='linkedin'){
+          this.validationLinkedIn();
+        }else if (event.target.name==='github'){
+          this.validationGitHub();
         }
         console.log(this.state.buttonIsDisabled);
-         if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
-           this.setState({buttonIsDisabled: true})
+         if (!this.validationName() || !this.validationJob() || !this.validationEmail() || !this.validationPhone() || !this.validationLinkedIn() || !this.validationGitHub()){
+           this.setState({
+             buttonIsDisabled: true,
+             errorMessage: 'Por favor, revisa los campos marcados en rojo.'})
            return false
          } else {
-          this.setState({buttonIsDisabled: false})
+          this.setState({
+            buttonIsDisabled: false,
+            errorMessage: ''})
           return true
          }
          //console.log(this.validationEmail())
          //console.log(this.validationPhone())
-         //console.log(this.validationTextInput())
+         //console.log(this.validationName())
       }
-      validationTextInput = () => {
-        if (!this.state.fullName || !this.state.job || !this.state.linkedin || !this.state.github){
+      validationName = () => {
+        if (this.state.fullName==='' || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            nameError: 'Introduzca un nombre válido'
+          })
           return false
         } else {
+          this.setState({
+            nameError: ''
+          })
+          return true
+        }
+      }
+      validationJob = () => {
+        if (this.state.job==='' || !this.state.job.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            jobError: 'Introduzca un puesto válido'
+          })
+          return false
+        } else {
+          this.setState({
+            jobError: ''
+          })
           return true
         }
       }
@@ -213,12 +246,38 @@ class CardPage extends React.Component {
       validationPhone = () => {
         if (!this.state.phone.match(/^[0-9]{9}/)){
           this.setState({
-            phoneError: 'Introduce un teléfono válido.'
+            phoneError: 'Introduzca un teléfono válido.'
           })
           return false
         } else {
           this.setState({
             phoneError: ''
+          })
+          return true
+        }
+      }
+      validationLinkedIn = () => {
+        if (!this.state.linkedin){
+          this.setState({
+            linkedinError: 'Introduzca un nombre de usuario válido'
+          })
+          return false
+        } else {
+          this.setState({
+            linkedinError: ''
+          })
+          return true
+        }
+      }
+      validationGitHub = () => {
+        if (!this.state.github){
+          this.setState({
+            githubError: 'Introduzca un nombre de usuario válido'
+          })
+          return false
+        } else {
+          this.setState({
+            githubError: ''
           })
           return true
         }
@@ -243,8 +302,8 @@ class CardPage extends React.Component {
             accordionOpen: name
           });
         }
-        if (name==='share'){
-          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
+        {/*if (name==='share'){
+          if (!this.validationName() || !this.validationEmail() || !this.validationPhone()){
             this.setState({
               errorMessage: 'Por favor, revisa los campos marcados en rojo.'
             })
@@ -253,7 +312,7 @@ class CardPage extends React.Component {
               errorMessage: ''
             })
           }
-        }
+        }*/}
 
       }
     render() {
@@ -273,8 +332,12 @@ class CardPage extends React.Component {
                   phone = {this.state.phone}
                   linkedin = {this.state.linkedin}
                   github = {this.state.github}
+                  nameError = {this.state.nameError}
+                  jobError = {this.state.jobError}
                   emailError = {this.state.emailError}
                   phoneError = {this.state.phoneError}
+                  linkedinError = {this.state.linkedinError}
+                  githubError = {this.state.githubError}
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}

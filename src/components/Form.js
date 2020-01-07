@@ -25,8 +25,12 @@ class Form extends React.Component {
                 phone = {this.props.phone}
                 linkedin = {this.props.linkedin}
                 github = {this.props.github}
+                nameError = {this.props.nameError}
+                jobError = {this.props.jobError}
                 emailError = {this.props.emailError}
                 phoneError = {this.props.phoneError}
+                linkedinError = {this.props.linkedinError}
+                githubError = {this.props.githubError}
                 onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>

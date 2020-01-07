@@ -22,6 +22,7 @@ class Fill extends React.Component{
                         name="fullName" 
                         value={this.props.fullName} 
                         required/>
+                        <ErrorMessage errorMessage = {this.props.nameError}/>
                     </li>
                     <li className="job">
                         <label htmlFor="job">Puesto<span>*</span></label>
@@ -34,6 +35,8 @@ class Fill extends React.Component{
                         name="job" 
                         value={this.props.job} 
                         required/>
+                        <ErrorMessage errorMessage = {this.props.jobError}/>
+
                     </li>
                     <li className="profile-picture">
                         <label htmlFor="image"> Imagen de perfil<span>*</span></label>
@@ -77,7 +80,8 @@ class Fill extends React.Component{
                         name="linkedin"
                         value = {this.props.linkedin} 
                         required/>
-                        <ErrorMessage id="error-linkedin" /*errorMessage = 'Introduce tu nombre de usuario de Linkedin sin @.'*//>
+                        <ErrorMessage errorMessage = {this.props.linkedinError}/>
+
                     </li>
                     <li className="github">
                         <label htmlFor="github">Github<span>*</span></label>
@@ -90,7 +94,8 @@ class Fill extends React.Component{
                         name="github" 
                         value = {this.props.github}
                         required/>
-                        <ErrorMessage id="error-github" /*errorMessage = 'Introduce tu nombre de usuario de Github sin @.'*//>
+                        <ErrorMessage errorMessage = {this.props.githubError}/>
+
                     </li>
                 </ul>
             </section>
