@@ -41,6 +41,7 @@ class CardPage extends React.Component {
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
+        this.validationHandler = this.validationHandler.bind(this)
         this.resetHandler = this.resetHandler.bind(this);
         this.saveData = this.saveData.bind(this);
         this.createObject = this.createObject.bind(this)
@@ -62,15 +63,16 @@ class CardPage extends React.Component {
         const itemProfile = JSON.parse(localStorage.getItem('profile'));
 
   
-        if (itemName !== null) {
-          this.setState({
-            fullName: itemName,
-          })
+        if (!itemName !== null) {
+          this.setState({fullName : itemName },
+          this.validationName)
+         
         }
         if (itemJob !== null) {
           this.setState({
-            job: itemJob,
-          })
+            job: itemJob
+          },
+          this.validationJob)
         }
         if (itemPalette !== null) {
           this.setState({
@@ -79,23 +81,27 @@ class CardPage extends React.Component {
         }
         if (itemEmail !== null) {
           this.setState({
-            email: itemEmail,
-          })
+            email: itemEmail
+          },
+          this.validationEmail)
         }
         if (itemPhone !== null) {
           this.setState({
-            phone: itemPhone,
-          })
+            phone: itemPhone
+          },
+          this.validationPhone)
         }
         if (itemLinkedin !== null) {
           this.setState({
-            linkedin: itemLinkedin,
-          })
+            linkedin: itemLinkedin
+          },
+          this.validationLinkedIn)
         }
         if (itemGithub !== null) {
           this.setState({
             github: itemGithub,
-          })
+          },
+          this.validationGitHub)
         }
         if (itemProfile !== null) {
           this.setState({
@@ -108,6 +114,7 @@ class CardPage extends React.Component {
           //   });
           // }
         console.log(this.state.fullName)
+        console.log(itemName)
       }
       
       saveData() {
@@ -163,7 +170,7 @@ class CardPage extends React.Component {
         const stateName = event.target.name;
         const newValue = event.target.value;
         this.setState({
-          [stateName]: newValue // `${stateName}`: newValue
+          [stateName]: newValue 
         }
         );
         this.validationHandler(event)
@@ -200,9 +207,6 @@ class CardPage extends React.Component {
             errorMessage: ''})
           return true
          }
-         //console.log(this.validationEmail())
-         //console.log(this.validationPhone())
-         //console.log(this.validationName())
       }
       validationName = () => {
         if (this.state.fullName==='' || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
