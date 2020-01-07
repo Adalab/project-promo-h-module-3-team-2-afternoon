@@ -36,11 +36,16 @@
     box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.164);
     cursor: pointer;
     @include hoverButton();
+    &:disabled {
+        background-color: rgb(74, 77, 77);
+        transform: none;
+        box-shadow: none;
+        cursor: not-allowed;
 }
-
-.btn-create-inactive{
+}
+/*.btn-create-inactive{
     background-color: $color-textlight;
-}
+}*/
 
 .btn-twitter{
     background: $color-twitter;

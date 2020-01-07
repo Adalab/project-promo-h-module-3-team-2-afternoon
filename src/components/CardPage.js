@@ -157,15 +157,16 @@ class CardPage extends React.Component {
           [stateName]: newValue // `${stateName}`: newValue
         }
         );
+        this.validationHandler()
         //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
-        console.log('holi')
         event.preventDefault()
         this.validationHandler()
         
       }
       validationHandler = () => {
+        console.log(this.state.buttonIsDisabled);
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
            this.setState({buttonIsDisabled: true})
          } else {
