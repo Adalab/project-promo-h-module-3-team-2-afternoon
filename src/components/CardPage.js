@@ -40,9 +40,7 @@ class CardPage extends React.Component {
         //this.getData = this.getData.bind(this);
       }
 
-      
-
-     
+    
       componentDidMount(){
         
         const itemPalette = JSON.parse(localStorage.getItem('palette'));
