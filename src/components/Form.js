@@ -59,8 +59,9 @@ class Form extends React.Component {
                 buttonIsDisabled={this.props.buttonIsDisabled}
                 errorMessage = {this.props.errorMessage}
                 linkCreateCard={this.props.linkCreateCard}
-                linkShareTwitter={this.props.linkShareTwitter}></Share>
-                />
+                linkShareTwitter={this.props.linkShareTwitter}>
+                </Share>
+              
               </AccordionItem>
             </Accordion>
           </form>
