@@ -54,6 +54,7 @@ class Form extends React.Component {
               <AccordionItem name="share" title="Comparte" icon="fas fa-share-alt" handleOpenAccordion={this.handleOpenAccordion} openName={accordionOpen}>
                 <Share
                 onChangeHandler={this.props.onChangeHandler}
+                onSubmitHandler={this.props.onSubmitHandler}
                 buttonIsDisabled={this.props.buttonIsDisabled}
                 />
               </AccordionItem>
