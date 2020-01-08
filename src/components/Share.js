@@ -5,7 +5,7 @@ import Buttons from "./Buttons";
 
 class Share extends React.Component{
     
-    render(){
+    render(props){
         return (
             <section className="share">
                 <ErrorMessage id="error-name-job" errorText = 'Por favor, revisa los campos marcados en rojo.'/>
@@ -20,8 +20,8 @@ class Share extends React.Component{
                 </Buttons>
                 <div className="card__share " id="card-share">
                     <p>La tarjeta ha sido creada:</p>
-                    <p id="card-link" className="card__link">card link</p>
-                    <a id="twitter-share" href="" target="_blank"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
+                    <p id="card-link" className="card__link"><a id="twitter-url" href={this.props.linkCreateCard!== '' ? this.props.linkCreateCard : ''} target="_blank" rel="noopener noreferrer">{this.props.linkCreateCard!== '' ? this.props.linkCreateCard : 'Card link'}</a></p>
+                    <a id="twitter-share" href={this.props.linkShareTwitter!== '' ? this.props.linkShareTwitter : ''} target="_blank" rel="noopener noreferrer"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
                 </div>
             </section>
         )

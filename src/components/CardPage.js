@@ -29,6 +29,8 @@ class CardPage extends React.Component {
           emailError: '',
           phoneError: '',
           buttonIsDisabled: true,
+          linkCreateCard: '',
+          linkShareTwitter: ''
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -43,14 +45,14 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
-        console.log('holi');
-
-        const cardLink = document.querySelector('.card-link')
-        const twitterButton = document.querySelector('.twitter-share')
+        
         if(data.success) {
-          cardLink.innerHTML = `<a class="twitter-url" href=${data.cardURL} target="_blank">${data.cardURL}</a>`
-          //twitterButton.style.href = `${data.cardURL}`;
-          //twitterLink()
+          const urlTwitter = encodeURIComponent('¡Acabo de crear esta tarjeta profesional con Awesome Profile Cards!');
+          const hastag = encodeURIComponent('adalab,adalaber,frontend,development,profile');
+          this.setState({
+            linkCreateCard: data.cardURL,
+            linkShareTwitter: `https://twitter.com/intent/tweet?text=${urlTwitter}&url=${data.cardURL}&hashtags=${hastag}`})
+          console.log(data.cardURL);
         }
       }
      
@@ -261,7 +263,9 @@ class CardPage extends React.Component {
                   phoneError = {this.state.phoneError}
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
-                  buttonIsDisabled={this.state.buttonIsDisabled}>
+                  buttonIsDisabled={this.state.buttonIsDisabled}
+                  linkCreateCard={this.state.linkCreateCard}
+                  linkShareTwitter={this.state.linkShareTwitter}>
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}

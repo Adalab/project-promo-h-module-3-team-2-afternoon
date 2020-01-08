@@ -55,6 +55,8 @@ class Form extends React.Component {
                 <Share
                 onSubmitHandler={this.props.onSubmitHandler}
                 buttonIsDisabled={this.props.buttonIsDisabled}
+                linkCreateCard={this.props.linkCreateCard}
+                linkShareTwitter={this.props.linkShareTwitter}></Share>
                 />
               </AccordionItem>
             </Accordion>

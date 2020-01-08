@@ -32,5 +32,5 @@ class Landing extends Component {
     );
   }
 }
-{/* <a className="main__link--a" href="./card.html">Comenzar</a> */ }
+
 export default Landing;
