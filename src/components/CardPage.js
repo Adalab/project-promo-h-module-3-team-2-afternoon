@@ -26,15 +26,23 @@ class CardPage extends React.Component {
           email: '',
           linkedin: '',
           github: '',
+          nameError: '',
+          jobError: '',
           emailError: '',
           phoneError: '',
+          linkedinError: '',
+          githubError: '',
+          errorMessage: '',
           buttonIsDisabled: true,
+          linkCreateCard: '',
+          linkShareTwitter: ''
         };
         console.log(this.state.buttonIsDisabled)
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
         this.updateAvatar = this.updateAvatar.bind(this);
+        this.validationHandler = this.validationHandler.bind(this)
         this.resetHandler = this.resetHandler.bind(this);
         this.saveData = this.saveData.bind(this);
         this.createObject = this.createObject.bind(this)
@@ -43,14 +51,14 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
-        console.log('holi');
-
-        const cardLink = document.querySelector('.card-link')
-        const twitterButton = document.querySelector('.twitter-share')
+        
         if(data.success) {
-          cardLink.innerHTML = `<a class="twitter-url" href=${data.cardURL} target="_blank">${data.cardURL}</a>`
-          //twitterButton.style.href = `${data.cardURL}`;
-          //twitterLink()
+          const urlTwitter = encodeURIComponent('¡Acabo de crear esta tarjeta profesional con Awesome Profile Cards!');
+          const hastag = encodeURIComponent('adalab,adalaber,frontend,development,profile');
+          this.setState({
+            linkCreateCard: data.cardURL,
+            linkShareTwitter: `https://twitter.com/intent/tweet?text=${urlTwitter}&url=${data.cardURL}&hashtags=${hastag}`})
+          console.log(data.cardURL);
         }
       }
      
@@ -67,14 +75,15 @@ class CardPage extends React.Component {
 
   
         if (itemName !== null) {
-          this.setState({
-            fullName: itemName,
-          })
+          this.setState({fullName : itemName },
+          this.validationName)
+         
         }
         if (itemJob !== null) {
           this.setState({
-            job: itemJob,
-          })
+            job: itemJob
+          },
+          this.validationJob)
         }
         if (itemPalette !== null) {
           this.setState({
@@ -83,23 +92,27 @@ class CardPage extends React.Component {
         }
         if (itemEmail !== null) {
           this.setState({
-            email: itemEmail,
-          })
+            email: itemEmail
+          },
+          this.validationEmail)
         }
         if (itemPhone !== null) {
           this.setState({
-            phone: itemPhone,
-          })
+            phone: itemPhone
+          },
+          this.validationPhone)
         }
         if (itemLinkedin !== null) {
           this.setState({
-            linkedin: itemLinkedin,
-          })
+            linkedin: itemLinkedin
+          },
+          this.validationLinkedIn)
         }
         if (itemGithub !== null) {
           this.setState({
             github: itemGithub,
-          })
+          },
+          this.validationGitHub)
         }
         if (itemProfile !== null) {
           this.setState({
@@ -112,6 +125,7 @@ class CardPage extends React.Component {
           //   });
           // }
         console.log(this.state.fullName)
+        console.log(itemName)
       }
       
       saveData() {
@@ -174,33 +188,71 @@ class CardPage extends React.Component {
         const stateName = event.target.name;
         const newValue = event.target.value;
         this.setState({
-          [stateName]: newValue // `${stateName}`: newValue
+          [stateName]: newValue 
         }
         );
-        this.validationHandler()
+        this.validationHandler(event)
         //console.log(this.state.fullName)
       }
       onSubmitHandler (event) {
         event.preventDefault()
-        this.validationHandler()
+        //this.validationHandler()
         const objectData = this.createObject()
         console.log(objectData);
 
         this.LocalFetch(objectData);
       }
-
-      validationHandler = () => {
+      validationHandler = event => {
+        if (event.target.name==='fullName'){
+          this.validationName();
+        } else if (event.target.name==='job'){
+          this.validationJob();
+        } else if (event.target.name==='email'){
+          this.validationEmail();
+        } else if (event.target.name==='phone'){
+          this.validationPhone();
+        } else if (event.target.name==='linkedin'){
+          this.validationLinkedIn();
+        }else if (event.target.name==='github'){
+          this.validationGitHub();
+        }
+        
         console.log(this.state.buttonIsDisabled);
-         if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
-           this.setState({buttonIsDisabled: true})
+         if (!this.validationName() || !this.validationJob() || !this.validationEmail() || !this.validationPhone() || !this.validationLinkedIn() || !this.validationGitHub()){
+           this.setState({
+             buttonIsDisabled: true,
+             errorMessage: 'Por favor, revisa los campos marcados en rojo.'})
+           return false
          } else {
-          this.setState({buttonIsDisabled: false})
+          this.setState({
+            buttonIsDisabled: false,
+            errorMessage: ''})
+          return true
          }
       }
-      validationTextInput = () => {
-        if (!this.state.fullName || !this.state.job || !this.state.linkedin || !this.state.github){
+      validationName = () => {
+        if (this.state.fullName==='' || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            nameError: 'Introduzca un nombre válido'
+          })
           return false
         } else {
+          this.setState({
+            nameError: ''
+          })
+          return true
+        }
+      }
+      validationJob = () => {
+        if (this.state.job==='' || !this.state.job.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            jobError: 'Introduzca un puesto válido'
+          })
+          return false
+        } else {
+          this.setState({
+            jobError: ''
+          })
           return true
         }
       }
@@ -220,12 +272,38 @@ class CardPage extends React.Component {
       validationPhone = () => {
         if (!this.state.phone.match(/^[0-9]{9}/)){
           this.setState({
-            phoneError: 'Introduce un teléfono válido.'
+            phoneError: 'Introduzca un teléfono válido.'
           })
           return false
         } else {
           this.setState({
             phoneError: ''
+          })
+          return true
+        }
+      }
+      validationLinkedIn = () => {
+        if (!this.state.linkedin){
+          this.setState({
+            linkedinError: 'Introduzca un nombre de usuario válido'
+          })
+          return false
+        } else {
+          this.setState({
+            linkedinError: ''
+          })
+          return true
+        }
+      }
+      validationGitHub = () => {
+        if (!this.state.github){
+          this.setState({
+            githubError: 'Introduzca un nombre de usuario válido'
+          })
+          return false
+        } else {
+          this.setState({
+            githubError: ''
           })
           return true
         }
@@ -240,8 +318,9 @@ class CardPage extends React.Component {
           }
         });
       }
-
+     
     render() {
+    
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
@@ -257,11 +336,19 @@ class CardPage extends React.Component {
                   phone = {this.state.phone}
                   linkedin = {this.state.linkedin}
                   github = {this.state.github}
+                  nameError = {this.state.nameError}
+                  jobError = {this.state.jobError}
                   emailError = {this.state.emailError}
                   phoneError = {this.state.phoneError}
+                  linkedinError = {this.state.linkedinError}
+                  githubError = {this.state.githubError}
                   onChangeHandler={this.onChangeHandler}
                   onSubmitHandler={this.onSubmitHandler}
-                  buttonIsDisabled={this.state.buttonIsDisabled}>
+                  buttonIsDisabled={this.state.buttonIsDisabled}
+                  errorMessage = {this.state.errorMessage}
+                  
+                  linkCreateCard={this.state.linkCreateCard}
+                  linkShareTwitter={this.state.linkShareTwitter}>
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}

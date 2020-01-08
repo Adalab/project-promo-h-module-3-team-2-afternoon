@@ -13,7 +13,6 @@ class Form extends React.Component {
       accordionOpen: ''
     };
   }
-
   handleOpenAccordion = (name) => {
     if (this.state.accordionOpen === name) {
       this.setState({
@@ -25,9 +24,8 @@ class Form extends React.Component {
       });
     }
   }
-  
   render() {
-    const accordionOpen = this.state.accordionOpen;
+  const accordionOpen = this.state.accordionOpen;
 
     return (
       <section className="forms">
@@ -45,8 +43,12 @@ class Form extends React.Component {
                 phone = {this.props.phone}
                 linkedin = {this.props.linkedin}
                 github = {this.props.github}
+                nameError = {this.props.nameError}
+                jobError = {this.props.jobError}
                 emailError = {this.props.emailError}
                 phoneError = {this.props.phoneError}
+                linkedinError = {this.props.linkedinError}
+                githubError = {this.props.githubError}
                 onChangeHandler = {this.props.onChangeHandler}>
                   {this.props.children}
                 </Fill>
@@ -55,6 +57,9 @@ class Form extends React.Component {
                 <Share
                 onSubmitHandler={this.props.onSubmitHandler}
                 buttonIsDisabled={this.props.buttonIsDisabled}
+                errorMessage = {this.props.errorMessage}
+                linkCreateCard={this.props.linkCreateCard}
+                linkShareTwitter={this.props.linkShareTwitter}></Share>
                 />
               </AccordionItem>
             </Accordion>

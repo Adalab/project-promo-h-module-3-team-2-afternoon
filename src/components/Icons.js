@@ -13,7 +13,7 @@ const Icon = props => {
   const clasNames = isHidden ? 'contact-icon hidden' : 'contact-icon';
 
   return (
-    <a href={url} target="_blank">
+    <a href={url} target="_blank" rel="noopener noreferrer">
       <li className={clasNames}>
         <i className={props.iconClass} aria-hidden="true"></i>
       </li>
