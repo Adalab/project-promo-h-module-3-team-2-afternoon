@@ -34,8 +34,8 @@ class CardPage extends React.Component {
           githubError: '',
           errorMessage: '',
           buttonIsDisabled: true,
-          accordionOpen: ''
-
+          linkCreateCard: '',
+          linkShareTwitter: ''
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -51,14 +51,14 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
-        console.log('holi');
-
-        const cardLink = document.querySelector('.card-link')
-        const twitterButton = document.querySelector('.twitter-share')
+        
         if(data.success) {
-          cardLink.innerHTML = `<a class="twitter-url" href=${data.cardURL} target="_blank">${data.cardURL}</a>`
-          //twitterButton.style.href = `${data.cardURL}`;
-          //twitterLink()
+          const urlTwitter = encodeURIComponent('¡Acabo de crear esta tarjeta profesional con Awesome Profile Cards!');
+          const hastag = encodeURIComponent('adalab,adalaber,frontend,development,profile');
+          this.setState({
+            linkCreateCard: data.cardURL,
+            linkShareTwitter: `https://twitter.com/intent/tweet?text=${urlTwitter}&url=${data.cardURL}&hashtags=${hastag}`})
+          console.log(data.cardURL);
         }
       }
      
@@ -346,7 +346,9 @@ class CardPage extends React.Component {
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}
                   errorMessage = {this.state.errorMessage}
-                  >
+                  
+                  linkCreateCard={this.state.linkCreateCard}
+                  linkShareTwitter={this.state.linkShareTwitter}>
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}
