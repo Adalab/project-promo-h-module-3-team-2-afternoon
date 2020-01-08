@@ -43,6 +43,8 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
+        console.log('holi');
+
         const cardLink = document.querySelector('.card-link')
         const twitterButton = document.querySelector('.twitter-share')
         if(data.success) {
@@ -132,7 +134,7 @@ class CardPage extends React.Component {
           email: this.state.email,
           linkedin: this.state.linkedin,
           github: this.state.github,
-          photo: this.state.profile
+          photo: this.state.profile.avatar
         }
         return userData;
       }
@@ -183,7 +185,8 @@ class CardPage extends React.Component {
         this.validationHandler()
         const objectData = this.createObject()
         console.log(objectData);
-        LocalFetch(objectData);
+
+        this.LocalFetch(objectData);
       }
 
       validationHandler = () => {
