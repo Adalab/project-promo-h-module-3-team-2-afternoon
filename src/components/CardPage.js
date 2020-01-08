@@ -7,7 +7,8 @@ import CardPreview from './CardPreview';
 import GetAvatar from './GetAvatar';
 import Profile from './Profile';
 import defaultImage from './defaultImage';
-//import { LocalFetch } from '../services/LocalFetch';
+import { LocalFetch } from '../services/LocalFetch';
+import { create } from 'domain';
 
 
 class CardPage extends React.Component {
@@ -37,10 +38,22 @@ class CardPage extends React.Component {
         this.resetHandler = this.resetHandler.bind(this);
         this.saveData = this.saveData.bind(this);
         this.createObject = this.createObject.bind(this)
+        this.showURL = this.showURL.bind(this)
         //this.getData = this.getData.bind(this);
       }
 
-    
+      showURL(data) {
+        console.log('holi');
+
+        const cardLink = document.querySelector('.card-link')
+        const twitterButton = document.querySelector('.twitter-share')
+        if(data.success) {
+          cardLink.innerHTML = `<a class="twitter-url" href=${data.cardURL} target="_blank">${data.cardURL}</a>`
+          //twitterButton.style.href = `${data.cardURL}`;
+          //twitterLink()
+        }
+      }
+     
       componentDidMount(){
         
         const itemPalette = JSON.parse(localStorage.getItem('palette'));
@@ -121,10 +134,11 @@ class CardPage extends React.Component {
           email: this.state.email,
           linkedin: this.state.linkedin,
           github: this.state.github,
-          photo: this.state.profile
+          photo: this.state.profile.avatar
         }
-        console.log (userData)
+        return userData;
       }
+
       resetHandler() {
         this.setState({
           palette: 1,
@@ -149,6 +163,12 @@ class CardPage extends React.Component {
         localStorage.removeItem('profile');
       }
 
+      LocalFetch(objectData) {
+        LocalFetch(objectData)
+        .then(data => this.showURL(data))
+        .catch(function (error) { console.log(error)})
+      }
+
       onChangeHandler(event) {
         this.saveData()
         const stateName = event.target.name;
@@ -163,8 +183,12 @@ class CardPage extends React.Component {
       onSubmitHandler (event) {
         event.preventDefault()
         this.validationHandler()
-        
+        const objectData = this.createObject()
+        console.log(objectData);
+
+        this.LocalFetch(objectData);
       }
+
       validationHandler = () => {
         console.log(this.state.buttonIsDisabled);
          if (!this.validationTextInput() || !this.validationEmail() || !this.validationPhone()){
