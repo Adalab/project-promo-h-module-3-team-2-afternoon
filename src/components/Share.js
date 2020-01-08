@@ -11,7 +11,7 @@ class Share extends React.Component{
                 <ErrorMessage id="error-name-job" errorMessage = {this.props.errorMessage}/>
                 <Buttons 
                 btnClass='btn-create'
-                action = {this.props.onChangeHandler}
+                action = {this.props.onSubmitHandler}
                 id='btn-create' 
                 text='crear tarjeta'
                 disabled = {this.props.buttonIsDisabled} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
