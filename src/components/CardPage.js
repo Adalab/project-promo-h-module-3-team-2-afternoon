@@ -8,7 +8,6 @@ import GetAvatar from './GetAvatar';
 import Profile from './Profile';
 import defaultImage from './defaultImage';
 import { LocalFetch } from '../services/LocalFetch';
-//import { create } from 'domain';
 
 
 class CardPage extends React.Component {
@@ -49,7 +48,6 @@ class CardPage extends React.Component {
         this.createObject = this.createObject.bind(this)
         this.showURL = this.showURL.bind(this)
         this.handleOpenAccordion = this.handleOpenAccordion.bind(this)
-        //this.getData = this.getData.bind(this);
       }
 
       showURL(data) {
@@ -121,14 +119,8 @@ class CardPage extends React.Component {
             profile: itemProfile
           })
         }
-          // if (getItem.photo !== null) {
-          //   this.setState({
-          //     isAvatarDefault: true
-          //   });
-          // }
         console.log(this.state.fullName)
         console.log(itemName)
-        //this.validationHandler()
       }
       
       saveData() {
@@ -174,7 +166,8 @@ class CardPage extends React.Component {
           emailError: '',
           phoneError: '',
           linkedinError: '',
-          githubError: ''
+          githubError: '',
+          linkCreateCard: '',
         });
         localStorage.removeItem('fullName');
         localStorage.removeItem('job');
@@ -217,10 +210,6 @@ class CardPage extends React.Component {
           [stateName]: newValue 
         });
         this.saveData()
-        //this.validationHandler()
-
-        //this.validationHandler(event)
-        //console.log(this.state.fullName)
       }
       validationName () {
         if (!this.state.fullName || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
@@ -302,7 +291,6 @@ class CardPage extends React.Component {
       }
       onSubmitHandler (event) {
         event.preventDefault()
-        //this.validationHandler()
         const objectData = this.createObject()
         console.log(objectData);
 
@@ -352,12 +340,6 @@ class CardPage extends React.Component {
           });
         }
         if (name==='share'){
-        {/*this.validationName()
-        this.validationJob()
-        this.validationEmail()
-        this.validationPhone()
-        this.validationLinkedIn()
-        this.validationGitHub()*/}
         this.validationHandler()
         }
       }
@@ -408,20 +390,4 @@ class CardPage extends React.Component {
 
 export default CardPage;
 
-        /*
-        console.log(data)
-        console.log(id)
-        this.setState((prevState, props) => {
-          let newName = prevState.name;
-          let newJob = prevState.job;
-          if (id === 'fullName') {
-            newName = data;
-          } else if (id === 'job') {
-            newJob = data;
-          } else {
-            console.log(`onChangeHandler(id=${id}) valor no está considerado`)
-          }
-          return {
-            name: newName,
-            job: newJob };
-        });*/
+        
