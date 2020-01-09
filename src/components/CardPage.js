@@ -168,6 +168,7 @@ class CardPage extends React.Component {
           linkedinError: '',
           githubError: '',
           linkCreateCard: '',
+          buttonIsDisabled: true
         });
         localStorage.removeItem('fullName');
         localStorage.removeItem('job');
