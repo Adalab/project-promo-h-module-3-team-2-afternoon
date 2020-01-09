@@ -35,7 +35,8 @@ class CardPage extends React.Component {
           errorMessage: '',
           buttonIsDisabled: true,
           linkCreateCard: '',
-          linkShareTwitter: ''
+          linkShareTwitter: '',
+          accordionOpen: ''
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -47,6 +48,7 @@ class CardPage extends React.Component {
         this.saveData = this.saveData.bind(this);
         this.createObject = this.createObject.bind(this)
         this.showURL = this.showURL.bind(this)
+        this.handleOpenAccordion = this.handleOpenAccordion.bind(this)
         //this.getData = this.getData.bind(this);
       }
 
@@ -75,13 +77,15 @@ class CardPage extends React.Component {
 
   
         if (itemName !== null) {
-          this.setState({fullName : itemName })
+          this.setState({fullName : itemName },
+            this.validationName)
          
         }
         if (itemJob !== null) {
           this.setState({
             job: itemJob
-          })
+          },
+          this.validationJob)
         }
         if (itemPalette !== null) {
           this.setState({
@@ -91,22 +95,26 @@ class CardPage extends React.Component {
         if (itemEmail !== null) {
           this.setState({
             email: itemEmail
-          })
+          },
+          this.validationEmail)
         }
         if (itemPhone !== null) {
           this.setState({
             phone: itemPhone
-          })
+          },
+          this.validationPhone)
         }
         if (itemLinkedin !== null) {
           this.setState({
             linkedin: itemLinkedin
-          })
+          },
+          this.validationLinkedIn)
         }
         if (itemGithub !== null) {
           this.setState({
             github: itemGithub,
-          })
+          },
+          this.validationGitHub)
         }
         if (itemProfile !== null) {
           this.setState({
@@ -120,6 +128,7 @@ class CardPage extends React.Component {
           // }
         console.log(this.state.fullName)
         console.log(itemName)
+        //this.validationHandler()
       }
       
       saveData() {
@@ -247,7 +256,7 @@ class CardPage extends React.Component {
         }
       }
       validationPhone = () => {
-        if (!this.state.phone.match(/^[0-9]{9}/)){
+        if (this.state.phone && !this.state.phone.match(/^[0-9]{9}/)){
           this.setState({
             phoneError: 'Introduzca un teléfono válido.'
           })
@@ -294,8 +303,14 @@ class CardPage extends React.Component {
         this.LocalFetch(objectData);
       }
       validationHandler = () => {
+        this.validationName()
+        this.validationJob()
+        this.validationEmail()
+        this.validationPhone()
+        this.validationLinkedIn()
+        this.validationGitHub()
         console.log(this.state.buttonIsDisabled);
-         if (this.state.nameError || this.state.jobError || this.state.emailError || this.state.phoneError || this.state.linkedinError || this.state.githubError){
+         if (!this.state.fullName || this.state.nameError || !this.state.job || this.state.jobError || !this.state.email || this.state.emailError || this.state.phoneError || !this.state.linkedin || this.state.linkedinError || !this.state.github || this.state.githubError){
            this.setState({
              buttonIsDisabled: true,
              errorMessage: 'Por favor, revisa los campos marcados en rojo.'})
@@ -320,9 +335,30 @@ class CardPage extends React.Component {
           }
         });
       }
-     
+      handleOpenAccordion = (name) => {
+        if (this.state.accordionOpen === name) {
+          this.setState({
+            accordionOpen: ''
+          });
+        } else {
+          this.setState({
+            accordionOpen: name
+          });
+        }
+        if (name==='share'){
+        {/*this.validationName()
+        this.validationJob()
+        this.validationEmail()
+        this.validationPhone()
+        this.validationLinkedIn()
+        this.validationGitHub()*/}
+        this.validationHandler()
+        }
+      }
     render() {
       const {profile, isAvatarDefault} = this.state;
+      const accordionOpen = this.state.accordionOpen;
+
       return (
         <div>
             <Header />
@@ -331,6 +367,8 @@ class CardPage extends React.Component {
                 <Profile avatar={profile.avatar} />
                 </CardPreview>
                 <Form
+                  handleOpenAccordion={this.handleOpenAccordion} 
+                  openName={accordionOpen}
                   fullName = {this.state.fullName}
                   job = {this.state.job}
                   email = {this.state.email}
