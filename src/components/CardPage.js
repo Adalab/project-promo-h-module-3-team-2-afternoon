@@ -75,48 +75,42 @@ class CardPage extends React.Component {
 
   
         if (itemName !== null) {
-          this.setState({fullName : itemName },
-          this.validationName)
+          this.setState({fullName : itemName })
          
         }
         if (itemJob !== null) {
           this.setState({
             job: itemJob
-          },
-          this.validationJob)
+          })
         }
         if (itemPalette !== null) {
           this.setState({
-            palette: itemPalette,
+            palette: itemPalette
           })
         }
         if (itemEmail !== null) {
           this.setState({
             email: itemEmail
-          },
-          this.validationEmail)
+          })
         }
         if (itemPhone !== null) {
           this.setState({
             phone: itemPhone
-          },
-          this.validationPhone)
+          })
         }
         if (itemLinkedin !== null) {
           this.setState({
             linkedin: itemLinkedin
-          },
-          this.validationLinkedIn)
+          })
         }
         if (itemGithub !== null) {
           this.setState({
             github: itemGithub,
-          },
-          this.validationGitHub)
+          })
         }
         if (itemProfile !== null) {
           this.setState({
-            profile: itemProfile,
+            profile: itemProfile
           })
         }
           // if (getItem.photo !== null) {
@@ -184,15 +178,112 @@ class CardPage extends React.Component {
       }
 
       onChangeHandler(event) {
-        this.saveData()
         const stateName = event.target.name;
         const newValue = event.target.value;
+        if (stateName==='fullName'){
+          this.validationName()
+        }
+        if (stateName==='job'){
+          this.validationJob()
+        }
+        if (stateName==='email'){
+          this.validationEmail()
+        }
+        if (stateName==='phone'){
+          this.validationPhone()
+        }
+        if (stateName==='linkedin'){
+          this.validationLinkedIn()
+        }
+        if (stateName==='github'){
+          this.validationGitHub()
+        }
         this.setState({
           [stateName]: newValue 
-        }
-        );
-        this.validationHandler(event)
+        });
+        this.saveData()
+        //this.validationHandler()
+
+        //this.validationHandler(event)
         //console.log(this.state.fullName)
+      }
+      validationName () {
+        if (!this.state.fullName || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            nameError: 'Introduzca un nombre válido'
+          })
+          //return false
+        } else {
+          this.setState({
+            nameError: ''
+          })
+          //return true
+        }  
+      }
+      validationJob () {
+        if (!this.state.job || !this.state.job.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
+          this.setState({
+            jobError: 'Introduzca un puesto válido'
+          })
+          //return false
+        } else {
+          this.setState({
+            jobError: ''
+          })
+          //return true
+        }  
+      }
+      validationEmail = () => {
+        if (!this.state.email || !this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
+          this.setState({
+            emailError: 'Introduce un email válido.'
+          })
+          //return false
+        } else {
+          this.setState({
+            emailError: ''
+          })
+         // return true
+        }
+      }
+      validationPhone = () => {
+        if (!this.state.phone.match(/^[0-9]{9}/)){
+          this.setState({
+            phoneError: 'Introduzca un teléfono válido.'
+          })
+          //return false
+        } else {
+          this.setState({
+            phoneError: ''
+          })
+          //return true
+        }
+      }
+      validationLinkedIn = () => {
+        if (!this.state.linkedin){
+          this.setState({
+            linkedinError: 'Introduzca un nombre de usuario válido'
+          })
+         // return false
+        } else {
+          this.setState({
+            linkedinError: ''
+          })
+         // return true
+        }
+      }
+      validationGitHub = () => {
+        if (!this.state.github){
+          this.setState({
+            githubError: 'Introduzca un nombre de usuario válido'
+          })
+         // return false
+        } else {
+          this.setState({
+            githubError: ''
+          })
+          //return true
+        }
       }
       onSubmitHandler (event) {
         event.preventDefault()
@@ -202,23 +293,9 @@ class CardPage extends React.Component {
 
         this.LocalFetch(objectData);
       }
-      validationHandler = event => {
-        if (event.target.name==='fullName'){
-          this.validationName();
-        } else if (event.target.name==='job'){
-          this.validationJob();
-        } else if (event.target.name==='email'){
-          this.validationEmail();
-        } else if (event.target.name==='phone'){
-          this.validationPhone();
-        } else if (event.target.name==='linkedin'){
-          this.validationLinkedIn();
-        }else if (event.target.name==='github'){
-          this.validationGitHub();
-        }
-        
+      validationHandler = () => {
         console.log(this.state.buttonIsDisabled);
-         if (!this.validationName() || !this.validationJob() || !this.validationEmail() || !this.validationPhone() || !this.validationLinkedIn() || !this.validationGitHub()){
+         if (this.state.nameError || this.state.jobError || this.state.emailError || this.state.phoneError || this.state.linkedinError || this.state.githubError){
            this.setState({
              buttonIsDisabled: true,
              errorMessage: 'Por favor, revisa los campos marcados en rojo.'})
@@ -230,84 +307,9 @@ class CardPage extends React.Component {
           return true
          }
       }
-      validationName = () => {
-        if (this.state.fullName==='' || !this.state.fullName.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
-          this.setState({
-            nameError: 'Introduzca un nombre válido'
-          })
-          return false
-        } else {
-          this.setState({
-            nameError: ''
-          })
-          return true
-        }
-      }
-      validationJob = () => {
-        if (this.state.job==='' || !this.state.job.match(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/)){
-          this.setState({
-            jobError: 'Introduzca un puesto válido'
-          })
-          return false
-        } else {
-          this.setState({
-            jobError: ''
-          })
-          return true
-        }
-      }
-      validationEmail = () =>{
-        if (this.state.email==='' || !this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-          this.setState({
-            emailError: 'Introduce un email válido.'
-          })
-          return false
-        } else {
-          this.setState({
-            emailError: ''
-          })
-          return true
-        }
-      }
-      validationPhone = () => {
-        if (!this.state.phone.match(/^[0-9]{9}/)){
-          this.setState({
-            phoneError: 'Introduzca un teléfono válido.'
-          })
-          return false
-        } else {
-          this.setState({
-            phoneError: ''
-          })
-          return true
-        }
-      }
-      validationLinkedIn = () => {
-        if (!this.state.linkedin){
-          this.setState({
-            linkedinError: 'Introduzca un nombre de usuario válido'
-          })
-          return false
-        } else {
-          this.setState({
-            linkedinError: ''
-          })
-          return true
-        }
-      }
-      validationGitHub = () => {
-        if (!this.state.github){
-          this.setState({
-            githubError: 'Introduzca un nombre de usuario válido'
-          })
-          return false
-        } else {
-          this.setState({
-            githubError: ''
-          })
-          return true
-        }
-      }
+      
+      
+      
     updateAvatar(img) {
         const {profile} = this.state;
         this.setState(prevState => {
@@ -320,7 +322,6 @@ class CardPage extends React.Component {
       }
      
     render() {
-    
       const {profile, isAvatarDefault} = this.state;
       return (
         <div>
