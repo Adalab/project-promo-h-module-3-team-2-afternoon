@@ -1,5 +1,4 @@
 import React from "react";
-//import './GetAvatar.css';
 import PropTypes from 'prop-types';
 
 class GetAvatar extends React.Component {

@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-//import './Profile.css';
-
 class Profile extends React.Component {
   render() {
     const {avatar} = this.props;
