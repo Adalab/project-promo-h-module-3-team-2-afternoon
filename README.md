@@ -18,7 +18,7 @@ Clona el repositorio y lanza la página introduciendo npm start en terminal o en
 ## 👩‍💻 Autoras
 Somos el grupo de las desarrolladoras Front-end en formación y este es nuestro último proyecto realizado durante el curso intensivo en Adalab.
 
-* [Ángela Benavente]: https://github.com/angelabenavente
-* [Laura Carril]: https://github.com/carpanla
-* [Ana Arribas]: https://github.com/ana-arribas
-* [María Dobos]: https://github.com/mariaadobos
+* Ángela Benavente (https://github.com/angelabenavente)
+* Laura Carril: (https://github.com/carpanla)
+* Ana Arribas: (https://github.com/ana-arribas)
+* María Dobos: (https://github.com/mariaadobos)
