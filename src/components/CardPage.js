@@ -168,6 +168,8 @@ class CardPage extends React.Component {
           linkedinError: '',
           githubError: '',
           linkCreateCard: '',
+          buttonIsDisabled: true,
+
         });
         localStorage.removeItem('fullName');
         localStorage.removeItem('job');
@@ -357,6 +359,7 @@ class CardPage extends React.Component {
                 <Form
                   handleOpenAccordion={this.handleOpenAccordion} 
                   openName={accordionOpen}
+                  palette = {this.state.palette}
                   fullName = {this.state.fullName}
                   job = {this.state.job}
                   email = {this.state.email}
@@ -373,7 +376,6 @@ class CardPage extends React.Component {
                   onSubmitHandler={this.onSubmitHandler}
                   buttonIsDisabled={this.state.buttonIsDisabled}
                   errorMessage = {this.state.errorMessage}
-                  
                   linkCreateCard={this.state.linkCreateCard}
                   linkShareTwitter={this.state.linkShareTwitter}>
                   <GetAvatar

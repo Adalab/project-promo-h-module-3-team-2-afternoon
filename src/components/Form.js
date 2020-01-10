@@ -16,7 +16,7 @@ class Form extends React.Component {
           <form action="" method="POST" id="card__form" onSubmit={this.onSubmitHandler}>
             <Accordion>
               <AccordionItem name="design" title="Diseña" icon="far fa-object-ungroup" handleOpenAccordion={this.props.handleOpenAccordion} openName={this.props.openName}>
-                <Design onChangeHandler={this.props.onChangeHandler}/>
+                <Design onChangeHandler={this.props.onChangeHandler} palette = {this.props.palette} />
               </AccordionItem>
               <AccordionItem name="fill" title="Rellena" icon="far fa-keyboard" handleOpenAccordion={this.props.handleOpenAccordion} openName={this.props.openName}>
                 <Fill 
