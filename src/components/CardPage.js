@@ -63,7 +63,6 @@ class CardPage extends React.Component {
       }
      
       componentDidMount(){
-        
         const itemPalette = JSON.parse(localStorage.getItem('palette'));
         const itemName = JSON.parse(localStorage.getItem('fullName'));
         const itemJob = JSON.parse(localStorage.getItem('job'));
@@ -72,8 +71,7 @@ class CardPage extends React.Component {
         const itemLinkedin = JSON.parse(localStorage.getItem('linkedin'));
         const itemGithub = JSON.parse(localStorage.getItem('github'));
         const itemProfile = JSON.parse(localStorage.getItem('profile'));
-
-  
+        const paletteDefault = "1";
         if (itemName !== null) {
           this.setState({fullName : itemName },
             this.validationName)
@@ -87,7 +85,11 @@ class CardPage extends React.Component {
         }
         if (itemPalette !== null) {
           this.setState({
-            palette: itemPalette
+            palette: itemPalette 
+          }) 
+        } else {
+          this.setState({
+            palette: paletteDefault
           })
         }
         if (itemEmail !== null) {
@@ -134,6 +136,7 @@ class CardPage extends React.Component {
         localStorage.setItem('profile', JSON.stringify(this.state.profile));
         this.createObject()
       }
+      
       createObject (){
         const userData = {
           palette: this.state.palette,
@@ -149,8 +152,9 @@ class CardPage extends React.Component {
       }
 
       resetHandler() {
+        const paletteDefault = "1";
         this.setState({
-          palette: 1,
+          palette: paletteDefault,
           fullName: '',
           job: '',
           isAvatarDefault: true,
