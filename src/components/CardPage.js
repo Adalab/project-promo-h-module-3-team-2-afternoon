@@ -122,7 +122,7 @@ class CardPage extends React.Component {
           })
         }
         console.log(this.state.fullName)
-        console.log(itemName)
+        console.log(itemProfile)
       }
       
       saveData() {
@@ -133,7 +133,7 @@ class CardPage extends React.Component {
         localStorage.setItem('email', JSON.stringify(this.state.email));
         localStorage.setItem('linkedin', JSON.stringify(this.state.linkedin));
         localStorage.setItem('github', JSON.stringify(this.state.github));
-        localStorage.setItem('profile', JSON.stringify(this.state.profile));
+        //localStorage.setItem('profile', JSON.stringify(this.state.profile));
         this.createObject()
       }
       
@@ -222,12 +222,10 @@ class CardPage extends React.Component {
           this.setState({
             nameError: 'Introduzca un nombre válido'
           })
-          //return false
         } else {
           this.setState({
             nameError: ''
           })
-          //return true
         }  
       }
       validationJob () {
@@ -235,12 +233,10 @@ class CardPage extends React.Component {
           this.setState({
             jobError: 'Introduzca un puesto válido'
           })
-          //return false
         } else {
           this.setState({
             jobError: ''
           })
-          //return true
         }  
       }
       validationEmail = () => {
@@ -248,12 +244,10 @@ class CardPage extends React.Component {
           this.setState({
             emailError: 'Introduce un email válido.'
           })
-          //return false
         } else {
           this.setState({
             emailError: ''
           })
-         // return true
         }
       }
       validationPhone = () => {
@@ -261,12 +255,10 @@ class CardPage extends React.Component {
           this.setState({
             phoneError: 'Introduzca un teléfono válido.'
           })
-          //return false
         } else {
           this.setState({
             phoneError: ''
           })
-          //return true
         }
       }
       validationLinkedIn = () => {
@@ -274,12 +266,11 @@ class CardPage extends React.Component {
           this.setState({
             linkedinError: 'Introduzca un nombre de usuario válido'
           })
-         // return false
         } else {
           this.setState({
             linkedinError: ''
           })
-         // return true
+
         }
       }
       validationGitHub = () => {
@@ -287,12 +278,10 @@ class CardPage extends React.Component {
           this.setState({
             githubError: 'Introduzca un nombre de usuario válido'
           })
-         // return false
         } else {
           this.setState({
             githubError: ''
           })
-          //return true
         }
       }
       onSubmitHandler (event) {
@@ -329,6 +318,7 @@ class CardPage extends React.Component {
         const {profile} = this.state;
         this.setState(prevState => {
           const newProfile = {...profile, avatar: img};
+          localStorage.setItem('profile', JSON.stringify(newProfile));
           return {
             profile: newProfile,
             isAvatarDefault: false

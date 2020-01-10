@@ -10,7 +10,7 @@ class AccordionItem extends React.Component {
   }
 
   render() {
-    const open = this.props.name === this.props.openName; //devuelve valor true o false
+    const open = this.props.name === this.props.openName; 
     const contentClass = 'form-bottom' + (open ? ' form-bottom-open' : '');
     const iconClass = 'form-arrow' + (open ? ' form-arrow-rotate' : '');
 

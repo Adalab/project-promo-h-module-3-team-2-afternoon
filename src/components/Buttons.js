@@ -27,7 +27,6 @@ const Buttons = props => {
 
 Buttons.propTypes = {
     btnClass: PropTypes.string.isRequired,
-    // handleReset: PropTypes.func
     text: PropTypes.string.isRequired
 }
 
