@@ -15,29 +15,40 @@ class CardPreview extends React.Component {
         const palette = this.props.palette === '' ? "1" : this.props.palette;
         const cardClass = `card ${paletteClasses[palette]}`;
 
+        const {
+            resetHandler,
+            fullName,
+            job,
+            children,
+            linkedin,
+            github,
+            email,
+            phone
+        } = this.props
+
         return (
             <section className="preview">
                 <div className="preview__wrapper">
-                    <Buttons 
-                        action = {this.props.resetHandler}
-                        btnClass='btn-reset' 
+                    <Buttons
+                        action={resetHandler}
+                        btnClass='btn-reset'
                         text=' reset'>
                         <i className="far fa-trash-alt"></i>
                     </Buttons>
                     <div className={cardClass} id="cardId">
                         <div className="card__id">
-                            <h3 id="cardName" className="card__id--name">{this.props.fullName === '' ? "Nombre Apellido" : this.props.fullName}</h3>
-                            <p id="cardJob" className="card__id--role">{this.props.job === '' ? "Front-end Developer" : this.props.job}</p>
+                            <h3 id="cardName" className="card__id--name">{fullName === '' ? "Nombre Apellido" : fullName}</h3>
+                            <p id="cardJob" className="card__id--role">{job === '' ? "Front-end Developer" : job}</p>
                         </div>
-                        {this.props.children}
-                        <PreviewIcons linkedin={this.props.linkedin} github={this.props.github} email={this.props.email} phone={this.props.phone} />
+                        {children}
+                        <PreviewIcons linkedin={linkedin} github={github} email={email} phone={phone} />
                     </div>
                 </div>
             </section>
         )
     }
 }
-CardPreview.propTypes={
+CardPreview.propTypes = {
     name: PropTypes.string,
     job: PropTypes.string
 }
