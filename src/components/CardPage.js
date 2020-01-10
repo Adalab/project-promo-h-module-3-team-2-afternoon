@@ -35,7 +35,8 @@ class CardPage extends React.Component {
           buttonIsDisabled: true,
           linkCreateCard: '',
           linkShareTwitter: '',
-          accordionOpen: ''
+          accordionOpen: '',
+          isLoading: false
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -51,7 +52,11 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
-        
+        //Finalizar el loader
+        if(this.state.linkCreateCard === data.cardURL) {
+          this.setState({isLoading:true});
+        }
+
         if(data.success) {
           const urlTwitter = encodeURIComponent('¡Acabo de crear esta tarjeta profesional con Awesome Profile Cards!');
           const hastag = encodeURIComponent('adalab,adalaber,frontend,development,profile');
@@ -187,8 +192,13 @@ class CardPage extends React.Component {
 
       LocalFetch(objectData) {
         LocalFetch(objectData)
-        .then(data => this.showURL(data))
+        .then(data => {
+          this.setState({
+            isLoading: false
+          });
+          this.showURL(data)})
         .catch(function (error) { console.log(error)})
+  
       }
 
       onChangeHandler(event) {
