@@ -14,7 +14,7 @@ class Share extends React.Component{
                 action = {this.props.onSubmitHandler}
                 id='btn-create' 
                 text='crear tarjeta'
-                disabled = {this.props.buttonIsDisabled} //{this.props.buttonIsDisabled} TODO: Si el botón está deshabilitado no se llama a la función.
+                disabled = {this.props.buttonIsDisabled} 
                 >
                     <i className="far fa-address-card"></i>
                 </Buttons>
@@ -29,10 +29,3 @@ class Share extends React.Component{
 }
 export default Share;
 
-/*                <div className="form-top" id="form-top-share">
-                    <h2><i className="fas fa-share-alt"></i> Comparte</h2>
-                    <div className="form-arrow arrow-down" id="arrow-share">
-                        <i className="fas fa-chevron-down"></i>
-                    </div>
-                </div>*/
-                //btn-create-inactive
