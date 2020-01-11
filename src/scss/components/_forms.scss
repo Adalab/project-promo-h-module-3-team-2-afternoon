@@ -5,7 +5,10 @@
     }
     
     .section-wrapper{
-        padding: 10px 20px 20px 0;
+        padding: 10px 20px 20px;
+        @include media($tablet){
+            padding: 10px 20px 20px 0;
+        }
 
         .form-top{
             width: 100%;
