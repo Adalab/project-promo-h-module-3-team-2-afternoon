@@ -15,7 +15,9 @@
 .preview{
     width: 100%;
     height: calc(100vh - 111px);
-    background-image: linear-gradient(#bfcdd0, #dde9ed);
+    background-image: url(../../images/night4.png);
+    background-size: cover;
+    //background-image: linear-gradient(#bfcdd0, #dde9ed);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +35,7 @@
         .btn-reset{
             margin-bottom: 20px;
             i {
-                color: $color-text;
+                color: $color-black;
             }
         }
 
