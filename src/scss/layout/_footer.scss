@@ -10,7 +10,7 @@
     width: 100%;
     height: 110px;
     border-top: solid 1px $color-white-2;
-    //en zeplin da la sensación de que el footer tiene la raya de arriba pero con ese color no se ve//
+   
     @include media($tablet){
         flex-direction: row;
         justify-content: space-between;

@@ -37,7 +37,6 @@ class CardPage extends React.Component {
           linkShareTwitter: '',
           accordionOpen: ''
         };
-        console.log(this.state.buttonIsDisabled)
 
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
@@ -58,7 +57,6 @@ class CardPage extends React.Component {
           this.setState({
             linkCreateCard: data.cardURL,
             linkShareTwitter: `https://twitter.com/intent/tweet?text=${urlTwitter}&url=${data.cardURL}&hashtags=${hastag}`})
-          console.log(data.cardURL);
         }
       }
      
@@ -121,8 +119,6 @@ class CardPage extends React.Component {
             profile: itemProfile
           })
         }
-        console.log(this.state.fullName)
-        console.log(itemProfile)
       }
       
       saveData() {
@@ -133,7 +129,6 @@ class CardPage extends React.Component {
         localStorage.setItem('email', JSON.stringify(this.state.email));
         localStorage.setItem('linkedin', JSON.stringify(this.state.linkedin));
         localStorage.setItem('github', JSON.stringify(this.state.github));
-        //localStorage.setItem('profile', JSON.stringify(this.state.profile));
         this.createObject()
       }
       
@@ -173,7 +168,6 @@ class CardPage extends React.Component {
           githubError: '',
           linkCreateCard: '',
           buttonIsDisabled: true,
-
         });
         localStorage.removeItem('fullName');
         localStorage.removeItem('job');
@@ -287,8 +281,6 @@ class CardPage extends React.Component {
       onSubmitHandler (event) {
         event.preventDefault()
         const objectData = this.createObject()
-        console.log(objectData);
-
         this.LocalFetch(objectData);
       }
       validationHandler = () => {
@@ -298,7 +290,6 @@ class CardPage extends React.Component {
         this.validationPhone()
         this.validationLinkedIn()
         this.validationGitHub()
-        console.log(this.state.buttonIsDisabled);
          if (!this.state.fullName || this.state.nameError || !this.state.job || this.state.jobError || !this.state.email || this.state.emailError || this.state.phoneError || !this.state.linkedin || this.state.linkedinError || !this.state.github || this.state.githubError){
            this.setState({
              buttonIsDisabled: true,

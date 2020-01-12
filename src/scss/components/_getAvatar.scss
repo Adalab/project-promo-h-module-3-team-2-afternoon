@@ -12,15 +12,11 @@
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.164);
     cursor: pointer;
   }
-  /*.get-avatar__upload-field {
-    display: none;
-  }*/
   .get-avatar__preview {
     width: 30px;
     height: 30px;
     margin-left: 20px;
     border: solid 1px $color-secondary-lighter;
-    // background-image: url('../images/profile-picture.gif');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
