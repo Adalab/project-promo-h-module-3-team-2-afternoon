@@ -116,6 +116,10 @@
             background-color: $color-palette1c2;
             border-radius: 21px;
             margin-bottom: 30px;
+            &:hover{
+                background-color: $color-main;
+                transform: scale(1.05);
+            }
 
             @include media($tablet){
                 margin-bottom: 60px;
