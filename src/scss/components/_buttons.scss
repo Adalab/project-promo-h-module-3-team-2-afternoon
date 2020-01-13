@@ -3,28 +3,16 @@
     height: 30px;
     border-radius: 15px;
     border: solid 1px $color-white;
-    color: $color-text;
+    background-color: $color-white-2;
+    color: $color-black;
     font-size: rem(12);
     line-height: 30px;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
-    background: none;
     cursor: pointer;
     @include hoverButton();
 
 }
-
-/*.btn-upload{
-    width: 140px;
-    height: 30px;
-    background-color: $color-main;
-    color: $color-white;
-    border-radius: 3px;
-    font-size: rem(14);
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.164);
-    cursor: pointer;
-}*/
-
 .btn-create{
     width: 200px;
     height: 50px;
@@ -41,12 +29,8 @@
         transform: none;
         box-shadow: none;
         cursor: not-allowed;
+    }
 }
-}
-/*.btn-create-inactive{
-    background-color: $color-textlight;
-}*/
-
 .btn-twitter{
     background: $color-twitter;
     border-radius: 3px;
