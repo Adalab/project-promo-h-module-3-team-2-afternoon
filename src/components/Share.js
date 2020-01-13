@@ -1,6 +1,7 @@
 import React from 'react';
 import ErrorMessage from './Error-message';
 import Buttons from "./Buttons";
+import Loader from './Loader';
 
 
 class Share extends React.Component {
@@ -11,7 +12,8 @@ class Share extends React.Component {
             onSubmitHandler,
             buttonIsDisabled,
             linkCreateCard,
-            linkShareTwitter
+            linkShareTwitter,
+            isLoading
         } = this.props
         return (
             <section className="share">
@@ -25,11 +27,14 @@ class Share extends React.Component {
                 >
                     <i className="far fa-address-card"></i>
                 </Buttons>
-                <div className={`card__share ${!linkCreateCard ? 'hidden' : null}`} id="card-share">
+                
+                {isLoading ? <Loader/> : 
+                    <div className={`card__share ${!linkCreateCard ? 'hidden' : null}`} id="card-share">
                     <p>La tarjeta ha sido creada:</p>
-                    <p id="card-link" className="card__link"><a id="twitter-url" href={linkCreateCard !== '' ? linkCreateCard : ''} target="_blank" rel="noopener noreferrer">{linkCreateCard !== '' ? linkCreateCard : 'Card link'}</a></p>
-                    <a id="twitter-share" href={linkShareTwitter !== '' ? linkShareTwitter : ''} target="_blank" rel="noopener noreferrer"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
-                </div>
+                    <p id="card-link" className="card__link"><a id="twitter-url" href={linkCreateCard!== '' ? linkCreateCard : ''} target="_blank" rel="noopener noreferrer">{linkCreateCard!== '' ? linkCreateCard : 'Card link'}</a></p>
+                    <a id="twitter-share" href={linkShareTwitter!== '' ? linkShareTwitter : ''} target="_blank" rel="noopener noreferrer"><div className="btn-twitter"><i className="fab fa-twitter"></i> Compartir en twitter</div></a>
+                    </div>}
+                
             </section>
         )
     }

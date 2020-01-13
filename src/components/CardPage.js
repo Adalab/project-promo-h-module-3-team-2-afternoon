@@ -35,7 +35,9 @@ class CardPage extends React.Component {
           buttonIsDisabled: true,
           linkCreateCard: '',
           linkShareTwitter: '',
-          accordionOpen: ''
+          accordionOpen: '',
+          isLoading: false
+
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -51,8 +53,8 @@ class CardPage extends React.Component {
       }
 
       showURL(data) {
-        
         if(data.success) {
+          this.setState({isLoading:false});
           const urlTwitter = encodeURIComponent('¡Acabo de crear esta tarjeta profesional con Awesome Profile Cards!');
           const hastag = encodeURIComponent('adalab,adalaber,frontend,development,profile');
           this.setState({
@@ -288,7 +290,9 @@ class CardPage extends React.Component {
         event.preventDefault()
         const objectData = this.createObject()
         console.log(objectData);
-
+        this.setState({
+          isLoading: 'true'
+        })
         this.LocalFetch(objectData);
       }
       validationHandler = () => {
@@ -371,7 +375,9 @@ class CardPage extends React.Component {
                   buttonIsDisabled={this.state.buttonIsDisabled}
                   errorMessage = {this.state.errorMessage}
                   linkCreateCard={this.state.linkCreateCard}
-                  linkShareTwitter={this.state.linkShareTwitter}>
+                  linkShareTwitter={this.state.linkShareTwitter}
+                  isLoading={this.state.isLoading}
+                  >
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}
