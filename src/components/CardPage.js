@@ -36,7 +36,7 @@ class CardPage extends React.Component {
           linkCreateCard: '',
           linkShareTwitter: '',
           accordionOpen: '',
-          isLoading: false
+          isLoading: true
         };
         console.log(this.state.buttonIsDisabled)
 
@@ -54,7 +54,7 @@ class CardPage extends React.Component {
       showURL(data) {
         //Finalizar el loader
         if(this.state.linkCreateCard === data.cardURL) {
-          this.setState({isLoading:true});
+          this.setState({isLoading:false});
         }
 
         if(data.success) {
@@ -309,7 +309,9 @@ class CardPage extends React.Component {
         event.preventDefault()
         const objectData = this.createObject()
         console.log(objectData);
-
+        this.setState({
+          isLoading: 'true'
+        })
         this.LocalFetch(objectData);
       }
       validationHandler = () => {
@@ -391,7 +393,9 @@ class CardPage extends React.Component {
                   buttonIsDisabled={this.state.buttonIsDisabled}
                   errorMessage = {this.state.errorMessage}
                   linkCreateCard={this.state.linkCreateCard}
-                  linkShareTwitter={this.state.linkShareTwitter}>
+                  linkShareTwitter={this.state.linkShareTwitter}
+                  isLoading={this.state.isLoading}
+                  >
                   <GetAvatar
                   avatar={profile.avatar}
                   isAvatarDefault={isAvatarDefault}
