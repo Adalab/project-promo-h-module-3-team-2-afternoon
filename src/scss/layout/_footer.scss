@@ -19,6 +19,24 @@
         padding: 20px 40px;
     }
 
+    &__team {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        display: none;
+        @include media($tablet){
+            display: flex;
+        }
+        &__logo {
+            width: 55px;
+        }
+        &__name {
+            color: #1d4e4e;
+            font-weight: 700;
+            margin-left: 5px;
+        }
+    }
+
     &__copyright{
         margin: 0px auto 20px;
 
