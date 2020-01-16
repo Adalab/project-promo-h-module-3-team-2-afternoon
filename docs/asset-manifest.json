@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "./static/css/main.55dff5e7.chunk.css",
+    "main.js": "./static/js/main.d3208688.chunk.js",
+    "main.js.map": "./static/js/main.d3208688.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.4ccbcaca.js",
+    "runtime-main.js.map": "./static/js/runtime-main.4ccbcaca.js.map",
+    "static/js/2.ec268221.chunk.js": "./static/js/2.ec268221.chunk.js",
+    "static/js/2.ec268221.chunk.js.map": "./static/js/2.ec268221.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.e1a055343c1cc7f5c7dcdde0760313d5.js": "./precache-manifest.e1a055343c1cc7f5c7dcdde0760313d5.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.55dff5e7.chunk.css.map": "./static/css/main.55dff5e7.chunk.css.map",
+    "static/js/2.ec268221.chunk.js.LICENSE": "./static/js/2.ec268221.chunk.js.LICENSE",
+    "static/media/main.scss": "./static/media/profilePicture.142e0c4a.gif",
+    "static/media/download.svg": "./static/media/download.0118e311.svg",
+    "static/media/loader.gif": "./static/media/loader.c6824601.gif",
+    "static/media/remder-logo.gif": "./static/media/remder-logo.6630a87b.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ccbcaca.js",
+    "static/js/2.ec268221.chunk.js",
+    "static/css/main.55dff5e7.chunk.css",
+    "static/js/main.d3208688.chunk.js"
+  ]
+}
